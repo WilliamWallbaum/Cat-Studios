@@ -6,8 +6,11 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: "https://catstudios.online",
   integrations: [mdx(), sitemap()],
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
+  experimental: {
+    assets: true,
+  }
 });
