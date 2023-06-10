@@ -1,0 +1,39 @@
+@import "../global";
+
+@mixin btn($bg-color: $black-1) {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: $global-s1 $global-s1 * 2;
+  border-radius: $global-radius;
+  background-color: $bg-color;
+
+  @include border();
+}
+
+button {
+  @include btn;
+}
+
+@each $key, $val in $colors {
+
+  .#{$key}-bttn {
+    @include btn($val);
+    background-color: $val;
+    border: 0;
+
+    &:hover {
+      background-color: lighten($val, 10%);
+    }
+  }
+
+  .#{$key}-bttn-outline {
+    @include btn();
+    border: $val;
+    color: $val;
+
+    &:hover {
+      border: lighten($val, 10%);
+    }
+  }
+}

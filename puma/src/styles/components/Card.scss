@@ -1,0 +1,14 @@
+@import "../global";
+
+.card {
+  background-color: $black-2;
+  transition: all 0.3s ease;
+  @include border();
+  @include shadow();
+
+  .card-header {
+    padding-left: $global-s1;
+    padding-right: $global-s1;
+    background-color: $white-6;
+  }
+}
