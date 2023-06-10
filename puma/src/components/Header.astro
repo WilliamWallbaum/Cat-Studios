@@ -1,5 +1,6 @@
 ---
-import Navigation from '../styles/components/Navbar.scss';
+import '../styles/components/Navigation.scss';
+import Navigation from '../components/Navigation.astro'
 ---
 
 <header class="mast">
@@ -18,9 +19,37 @@ import Navigation from '../styles/components/Navbar.scss';
         grid-template-areas: "site-title nav-links";
         justify-items: center;
         align-items: stretch;
-        background-color: $black-7;
+        background-color: black;
     }
-    .site-title h1 {
-        color: $white-9;
+    .site-title {
+        grid-area: site-title;
+        font-size: 1.5rem;
+        h1 {
+        color: white;
+        }
+        a {
+        color: white;
+        }
+    }
+    
+    .nav-links {
+    grid-area: nav-links;
+    display: flex;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 1rem;
+    .active {
+        background-color: #ffffff20;
+    }
+    li {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    li:hover {
+        background-color: #ffffff30;
+    }
     }
 </style>
