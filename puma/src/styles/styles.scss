@@ -20,6 +20,9 @@ body, main, section, article, div, span, h1, h2, h3, h4, h5, h6 {
 }
 
 // Main styles
+body {
+    background-color: $black-6;
+}
 main {
     width: 80%; // Set the width to 80% of the parent container
     margin: auto; // Center align horizontally by setting left and right margins to auto
