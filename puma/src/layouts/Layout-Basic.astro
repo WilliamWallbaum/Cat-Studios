@@ -1,0 +1,21 @@
+---
+import Head from '@components/Head.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import "../styles/styles.scss"
+
+const { pageTitle } = Astro.props;
+---
+<html lang="en">
+  <Head pageTitle="Home" />
+  <body>
+    <Header />
+    <h1>{ pageTitle } Demo Site</h1>
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style lang="scss">
+
+</style>

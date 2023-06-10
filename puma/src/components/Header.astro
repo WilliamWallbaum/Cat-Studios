@@ -1,0 +1,26 @@
+---
+import Navigation from '../styles/components/Navbar.scss';
+---
+
+<header class="mast">
+    <div class="site-title">
+        <h1>Site Name</h1>
+    </div>
+    <nav class="nav-links">
+        <Navigation/>
+    </nav>
+</header>
+
+<style lang="scss">
+    .mast {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "site-title nav-links";
+        justify-items: center;
+        align-items: stretch;
+        background-color: $black-7;
+    }
+    .site-title h1 {
+        color: $white-9;
+    }
+</style>
