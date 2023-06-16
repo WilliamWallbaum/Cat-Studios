@@ -13,8 +13,8 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/prefetch": "^0.2.3",
     "@astrojs/rss": "^2.4.3",
-    "astro": "^2.6.3",
-    "sass": "^1.63.3"
+    "astro": "^2.6.4",
+    "sass": "^1.63.4"
   },
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^2.2.3",
