@@ -13,10 +13,13 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/prefetch": "^0.2.3",
     "@astrojs/rss": "^2.4.3",
-    "astro": "^2.6.2",
+    "astro": "^2.6.3",
     "sass": "^1.63.3"
   },
   "devDependencies": {
+    "@csstools/postcss-oklab-function": "^2.2.3",
+    "@csstools/postcss-sass": "^5.0.1",
+    "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.10.0"
   }
