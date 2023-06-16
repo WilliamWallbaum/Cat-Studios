@@ -1,0 +1,214 @@
+:root {
+  /* sets global variables */
+  --primary-color: oklch(47.06% 0.178 147.18);
+  --secondary-color: oklch(47% 1 147);
+  --tertiary-color: oklch(230% 18 25);
+  --lightblue: oklch(196% 42 212);
+  --red: oklch(20% 73, 356);
+  --yellow: oklch(84% 87 93);
+  --black: oklch(0% 0 0);
+  --white: oklch(100% 0 0);
+
+  /* other global variables */
+  --primary-font: sans-serif;
+  --primary-text-color: oklch(0% 0 199 / 70%);
+
+  --global-line-height: 1.5;
+  --global-s1: 1rem;
+  --global-s2: 2rem;
+  --global-s3: 3rem;
+  --global-s4: 4rem;
+  --animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --animation-duration: 1s;
+  --global-radius: 0.2rem;
+  --global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
+    calc(var(--global-s1) * 0.5) var(--black-5);
+}
+
+$colors: (
+  primary: var(--primary-color),
+  secondary: var(--secondary-color),
+  tertiary: var(--tertiary-color),
+  lightblue: var(--lightblue),
+  red: var(--red),
+  yellow: var(--yellow),
+  black: var(--black),
+  white: var(--white),
+);
+
+@each $name, $value in $colors {
+  :root {
+    --#{$name}: color(--oklch, #{$value}...);
+  }
+}
+
+/* shades */
+@for $i from 1 through 9 {
+  --gray-#{$i}: color(--oklch, 0, 0, calc(#{$i} * var(--oklch-l-scale)));
+}
+
+/* opacities */
+@for $i from 1 through 9 {
+  --black-#{$i}: color(--oklch, 0, 0, 0, #{$i}1%);
+  --white-#{$i}: color(--oklch, 100, 0, 0, #{$i}1%);
+}
+
+@each $key, $value in $colors {
+  .text-#{$key},
+  .bg-#{$key} {
+    color: var(--#{$key});
+    background-color: var(--#{$key});
+  }
+
+  @for $i from 1 through 9 {
+    $lightColor: color(oklch.mix(var(--white), var(--#{$key}), $i * 10%));
+    $darkColor: color(oklch.mix(var(--black), var(--#{$key}), $i * 10%));
+
+    .text-#{$key}-light-#{$i},
+    .bg-#{$key}-light-#{$i},
+    .text-#{$key}-dark-#{$i},
+    .bg-#{$key}-dark-#{$i} {
+      color: $lightColor;
+      background-color: $lightColor;
+    }
+  }
+}
+
+@keyframes bounceIn {
+  @for $i from 0 through 100 {
+    #{$i}% {
+      animation-timing-function: var(--animation-timing-function);
+    }
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.bounceIn {
+  animation-duration: var(--animation-duration);
+  animation-name: bounceIn;
+}
+
+/* Other animation keyframes and classes go here */
+
+.animated {
+  animation-duration: var(--animation-duration);
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+@for $i from 1 through 5 {
+  .animated.delay-#{$i}s {
+    animation-delay: #{$i}s;
+  }
+}
+
+.animated.fast {
+  animation-duration: 0.8s;
+}
+.animated.faster {
+  animation-duration: 0.5s;
+}
+.animated.slow {
+  animation-duration: 2s;
+}
+.animated.slower {
+  animation-duration: 3s;
+}
+
+@media (print) {
+  .animated {
+    animation: unset !important;
+    transition: none !important;
+  }
+}
+
+body,
+main,
+section,
+article,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--primary-font);
+  color: var(--primary-text-color);
+  transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  background-color: var(--black-2);
+}
+
+p {
+  font-family: var(--primary-font);
+  margin: 0;
+  padding: 0;
+  line-height: var(--global-line-height);
+}
+
+h1 {
+  margin: var(--global-s2) 0;
+  color: var(--black-5);
+}
+
+h2 {
+  color: var(--black-6);
+}
+
+h3 {
+  margin: var(--global-s1);
+  letter-spacing: 0.5px;
+}
+
+code {
+  background-color: var(--black-2);
+  border-radius: var(--global-radius);
+  padding: 0px 5px 3px;
+  color: var(--black-7);
+}
