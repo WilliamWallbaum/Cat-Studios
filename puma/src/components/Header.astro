@@ -1,5 +1,5 @@
 ---
-import '../styles/components/Navigation.scss';
+import '../styles/styles.css';
 import Navigation from '../components/Navigation.astro'
 ---
 
@@ -12,26 +12,26 @@ import Navigation from '../components/Navigation.astro'
     </nav>
 </header>
 
-<style lang="scss">
+<style>
     .mast {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: "site-title nav-links";
-        justify-items: center;
-        align-items: stretch;
-        background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "site-title nav-links";
+    justify-items: center;
+    align-items: stretch;
+    background-color: var(--primary-color);
     }
+
     .site-title {
-        grid-area: site-title;
-        font-size: 1.5rem;
-        h1 {
-        color: white;
-        }
-        a {
-        color: white;
-        }
+    grid-area: site-title;
+    font-size: 1.5rem;
     }
-    
+
+    .site-title h1,
+    .site-title a {
+    color: var(--white);
+    }
+
     .nav-links {
     grid-area: nav-links;
     display: flex;
@@ -40,16 +40,20 @@ import Navigation from '../components/Navigation.astro'
     margin: 0;
     list-style: none;
     gap: 1rem;
-    .active {
-        background-color: #ffffff20;
     }
-    li {
-        height: 100%;
-        display: flex;
-        align-items: center;
+
+    .nav-links .active {
+    background-color: rgba(255, 255, 255, 0.2);
     }
-    li:hover {
-        background-color: #ffffff30;
+
+    .nav-links li {
+    height: 100%;
+    display: flex;
+    align-items: center;
     }
+
+    .nav-links li:hover {
+    background-color: rgba(255, 255, 255, 0.3);
     }
+
 </style>
