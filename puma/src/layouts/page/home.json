@@ -1,0 +1,14 @@
+{
+  "home": [
+    {
+      "name": "hero",
+      "type": "full",
+      "content": ""
+    },
+    {
+        "name": "cv",
+        "type":"resume",
+        "content":""
+    }
+]
+}
