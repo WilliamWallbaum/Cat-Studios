@@ -9,6 +9,9 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "browserslist": [
+    "defaults"
+  ],
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/prefetch": "^0.2.3",
@@ -20,6 +23,8 @@
     "@csstools/postcss-oklab-function": "^2.2.3",
     "@csstools/postcss-sass": "^5.0.1",
     "postcss": "^8.4.24",
+    "postcss-import": "^15.1.0",
+    "postcss-preset-env": "^8.5.0",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.10.0"
   }
