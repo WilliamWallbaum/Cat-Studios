@@ -1,11 +1,13 @@
 ---
 import '../styles/styles.css';
 import Navigation from '../components/Navigation.astro'
+
+const baseURL = import.meta.env.SITE
 ---
 
 <header class="mast">
     <div class="site-title">
-        <h1>Site Name</h1>
+        <a href={baseURL}><h1>Site Name</h1></a>
     </div>
     <nav class="nav-links">
         <Navigation/>
@@ -15,45 +17,34 @@ import Navigation from '../components/Navigation.astro'
 <style>
     .mast {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas: "site-title nav-links";
-    justify-items: center;
-    align-items: stretch;
-    background-color: var(--primary-color);
+    background-color: oklch(0% 0 0 / 50%);
     }
 
     .site-title {
     grid-area: site-title;
-    font-size: 1.5rem;
-    }
-
-    .site-title h1,
-    .site-title a {
-    color: var(--white);
+    padding: calc(var(--global-s1) * .5);
+    font-size: .75rem;
+        & h1, a {
+            text-decoration: none;
+            color: var(--white);
+            margin:0;
+        }
     }
 
     .nav-links {
     grid-area: nav-links;
+    justify-self: end;
     display: flex;
-    text-decoration: none;
+    flex-direction: row;
     padding: 0;
-    margin: 0;
+    margin: 0 var(--global-s3) 0 0 ;
     list-style: none;
     gap: 1rem;
-    }
-
-    .nav-links .active {
-    background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .nav-links li {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    }
-
-    .nav-links li:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+        & .active {
+        background-color: rgba(255, 255, 255, 0.2);
+        }
     }
 
 </style>
