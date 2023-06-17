@@ -2,16 +2,14 @@
 import Head from '@components/Head.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-import "../styles/styles.css";
-
-const { pageTitle } = Astro.props;
+import Main from "@components/Main.astro";
+import "@styles/styles.css";
 ---
 <html lang="en">
   <Head pageTitle="Home" />
   <body>
     <Header />
-    <h1>{ pageTitle } Demo Site</h1>
-    <slot />
+    <Main />
     <Footer />
   </body>
 </html>
