@@ -6,8 +6,30 @@
   --lightblue: oklch(196% 42 212);
   --red: oklch(20% 73, 356);
   --yellow: oklch(84% 87 93);
+
+  /* blacks */
   --black: oklch(0% 0 0);
+  --black-9: oklch(0% 0 0 / 90%);
+  --black-8: oklch(0% 0 0 / 80%);
+  --black-7: oklch(0% 0 0 / 70%);
+  --black-6: oklch(0% 0 0 / 60%);
+  --black-5: oklch(0% 0 0 / 50%);
+  --black-4: oklch(0% 0 0 / 40%);
+  --black-3: oklch(0% 0 0 / 30%);
+  --black-2: oklch(0% 0 0 / 20%);
+  --black-1: oklch(0% 0 0 / 10%);
+
+  /* whites */
   --white: oklch(100% 0 0);
+  --white-9: oklch(100% 0 0 / 90%);
+  --white-8: oklch(100% 0 0 / 80%);
+  --white-7: oklch(100% 0 0 / 70%);
+  --white-6: oklch(100% 0 0 / 60%);
+  --white-5: oklch(100% 0 0 / 50%);
+  --white-4: oklch(100% 0 0 / 40%);
+  --white-3: oklch(100% 0 0 / 30%);
+  --white-2: oklch(100% 0 0 / 20%);
+  --white-1: oklch(100% 0 0 / 10%);
 
   /* other global variables */
   --primary-font: sans-serif;
@@ -35,6 +57,17 @@ $colors: (
   black: var(--black),
   white: var(--white),
 );
+
+/* mixins */
+@define-mixin border-radius {  
+  border-radius:var(--global-radius);
+  box-shadow:var(--global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.5) var(--black-5));
+}
+@define-mixin spacing-1 {  
+  padding:var(--global-radius);
+}
+
+/* maths */
 
 @each $name, $value in $colors {
   :root {
@@ -74,6 +107,7 @@ $colors: (
   }
 }
 
+/* animations */
 @keyframes bounceIn {
   @for $i from 0 through 100 {
     #{$i}% {
@@ -147,7 +181,6 @@ $colors: (
 }
 
 body,
-main,
 section,
 article,
 div,
@@ -160,8 +193,6 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  font-family: var(--primary-font);
-  color: var(--primary-text-color);
   transition: all 0.3s ease;
 }
 
@@ -172,6 +203,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--primary-font);
+  color: var(--primary-text-color);
 }
 
 code {
@@ -179,16 +212,10 @@ code {
     monospace;
 }
 
-main {
-  width: 80%;
-  margin: auto;
-  background-color: var(--black-2);
-}
+
 
 p {
   font-family: var(--primary-font);
-  margin: 0;
-  padding: 0;
   line-height: var(--global-line-height);
 }
 
