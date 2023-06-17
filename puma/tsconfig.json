@@ -6,7 +6,11 @@
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@blog/*": ["src/pages/blog/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@sections/*": ["src/layouts/sections/*"],
+      "@page/*": ["src/layouts/page/*"],
+      "@styles/*": ["src/styles/*"]
     },
   }
 }
