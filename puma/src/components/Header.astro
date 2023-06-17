@@ -1,5 +1,4 @@
 ---
-import '../styles/styles.css';
 import Navigation from '../components/Navigation.astro'
 
 const baseURL = import.meta.env.SITE
@@ -19,7 +18,7 @@ const baseURL = import.meta.env.SITE
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-areas: "site-title nav-links";
-    background-color: oklch(0% 0 0 / 50%);
+    background-color: var(--black-7);
     }
 
     .site-title {
@@ -28,7 +27,7 @@ const baseURL = import.meta.env.SITE
     font-size: .75rem;
         & h1, a {
             text-decoration: none;
-            color: var(--white);
+            color: var(--white-5);
             margin:0;
         }
     }
@@ -43,7 +42,7 @@ const baseURL = import.meta.env.SITE
     list-style: none;
     gap: 1rem;
         & .active {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: var(--black-5);
         }
     }
 
