@@ -1,6 +1,6 @@
 :root {
   /* sets global variables */
-  --primary-color: oklch(47.06% 0.178 147.18);
+  --primary-color: oklch(70% 0.1 125);
   --secondary-color: oklch(47% 1 147);
   --tertiary-color: oklch(230% 18 25);
   --lightblue: oklch(196% 42 212);
