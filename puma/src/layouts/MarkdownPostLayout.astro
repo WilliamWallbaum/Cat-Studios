@@ -1,0 +1,13 @@
+---
+import LayoutBasic from "@layouts/Layout-Basic.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<LayoutBasic>
+  <h1>{frontmatter.title}</h1>
+  <p><em>{frontmatter.description}</em></p>
+  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <slot />
+  <p>Written by: {frontmatter.author} on {frontmatter.pubDate.slice(0, 10)}</p>
+</LayoutBasic>
