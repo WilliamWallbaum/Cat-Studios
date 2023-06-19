@@ -1,3 +1,23 @@
-<section>
+---
+const { id = "resume", className = "container"} = Astro.props
+---
+
+<section id={id} class={className}>
     <slot/>
 </section>
+
+<style>
+  section {
+    @insert .card
+  }
+  @media (prefers-color-scheme: dark) {
+  .hero {
+    background-color: var(--black);
+    color: var(--white);
+    & h1{
+      color: var(--white);
+      margin:0;
+    }
+  }
+  }
+</style>

@@ -1,13 +1,15 @@
 ---
+const { id = "full", className = "container"} = Astro.props
 ---
 
-<section>
+<section id={id} class={className}>
     <slot/>
 </section>
 
 <style>
-section {
-    @mixin border-radius;
-    background-color: var(--primary-text-color);
-}
+    section {
+        @mixin border-radius;
+        background-color: var(--primary-text-color);
+        padding: var(--global-s1);
+    }
 </style>
