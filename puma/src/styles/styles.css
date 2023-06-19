@@ -1,9 +1,9 @@
 :root {
   /* sets global variables */
   --primary-color: oklch(70% 0.1 125);
-  --secondary-color: oklch(47% 1 147);
-  --tertiary-color: oklch(230% 18 25);
-  --lightblue: oklch(196% 42 212);
+  --secondary-color: oklch(37.18% 0.071 172.23);
+  --tertiary-color: oklch(58.26% 0.207 257.07);
+  --byzantium: oklch(42.74% 0.148 345.17);
   --red: oklch(20% 73, 356);
   --yellow: oklch(84% 87 93);
 
@@ -59,12 +59,13 @@ $colors: (
 );
 
 /* mixins */
-@define-mixin border-radius {  
-  border-radius:var(--global-radius);
-  box-shadow:var(--global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.5) var(--black-5));
-}
-@define-mixin spacing-1 {  
-  padding:var(--global-radius);
+.card {
+  border-radius: var(--global-radius);
+  box-shadow: var(
+    --global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
+      calc(var(--global-s1) * 0.5) var(--black-5)
+  );
+  padding: var(--global-s2);
 }
 
 /* maths */
@@ -212,7 +213,11 @@ code {
     monospace;
 }
 
-
+.container {
+  width: 80%;
+  margin: auto;
+  background-color: var(--black-2);
+}
 
 p {
   font-family: var(--primary-font);
