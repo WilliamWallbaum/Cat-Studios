@@ -1,17 +1,43 @@
 ---
 import Full from '../layouts/sections/Full.astro';
 import Resume from '../layouts/sections/Resume.astro';
+import PostLinks from './PostLinks.astro';
 ---
 <main>
-  <h1>{}</h1>
-  <Full id=""><h1>Welcome to Cat Studios Online</h1></Full>
-  <Resume></Resume>
+  <Full id="full-section" className="hero">
+    <h1>Welcome to Cat Studios Online</h1>
+    <p>Here's what Bill has been upto lately. </p>
+  </Full>
+  <slot />
+  <PostLinks />
+  <Resume className="resume">
+    <h2>Bill's CV</h2>
+    <div id="work-history">
+      <h3>Work History</h3>
+    </div>
+    <div id="education">
+      <h3>Education</h3>
+    </div>
+    <div id="skills">
+      <h3>Skills</h3>
+    </divsk>
+
+  </Resume>
 </main>
 
 <style>
-    main {
-        width: 80%;
-        margin: auto;
-        background-color: var(--black-2);
+  .hero {
+    padding: var(--global-s2);
+    @insert .card
+  }
+  @media (prefers-color-scheme: dark) {
+  .hero {
+    background-color: var(--black);
+    color: var(--white);
+    & h1{
+      color: var(--white);
+      margin:0;
     }
+  }
+  }
 </style>
