@@ -1,12 +1,13 @@
 module.exports = {
   plugins: [
     [
-      "postcss-preset-env",
+      require("postcss-preset-env"),
       {
         stage: 2,
       },
-      "postcss-import",
-      "autoprefixer"
+      require("postcss-import"),
+      require("autoprefixer"),
+      require("cssnano"),
     ],
   ],
 };
