@@ -45,10 +45,9 @@ const blog = await Astro.glob("../pages/blog/*.md");
     text-align: center;
     background-color: var(--white-3);
     padding: var(--global-s2) var(--global-s2) 0 var(--global-s2);
-
-  & h2 {
-    font-size: 2rem;
-  }
+    h2 {
+      font-size: 2rem;
+    }
   }
 
   .post-container {
@@ -62,7 +61,7 @@ const blog = await Astro.glob("../pages/blog/*.md");
     margin: 0;
     padding: 0;
     gap: var(--global-s1);
-    & li {
+    li {
       outline: 2px ridge var(--black-6);
       background-color: var(--white-3);
       padding:  var(--global-s1);
