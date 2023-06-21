@@ -22,6 +22,7 @@
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^2.2.3",
     "@csstools/postcss-sass": "^5.0.1",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.1",
     "eslint": "^8.43.0",
@@ -34,7 +35,6 @@
     "postcss-preset-env": "^8.5.0",
     "postcss-simple-vars": "^7.0.1",
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.10.0",
-    "resolve-url": "^0.2.1"
+    "prettier-plugin-astro": "^0.10.0"
   }
 }
