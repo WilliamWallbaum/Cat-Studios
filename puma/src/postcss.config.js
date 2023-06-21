@@ -8,6 +8,7 @@ module.exports = {
       require("postcss-import"),
       require("autoprefixer"),
       require("cssnano"),
+      require("postcss-nesting"),
     ],
   ],
 };
