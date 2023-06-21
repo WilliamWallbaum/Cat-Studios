@@ -61,6 +61,8 @@ const blog = await Astro.glob("../pages/blog/*.md");
     margin: 0;
     padding: 0;
     gap: var(--global-s1);
+  }
+  
     li {
       outline: 2px ridge var(--black-6);
       background-color: var(--white-3);
@@ -73,7 +75,6 @@ const blog = await Astro.glob("../pages/blog/*.md");
       flex-wrap: wrap;
       align-content: center;
     }
-  }
 
   img.blog-post-img {
     outline: 2px ridge var(--black-6);
