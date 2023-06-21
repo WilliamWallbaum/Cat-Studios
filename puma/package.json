@@ -29,8 +29,10 @@
     "postcss-each-variables": "^0.3.0",
     "postcss-import": "^15.1.0",
     "postcss-insert": "^1.0.0",
+    "postcss-nested-vars": "^1.0.0",
     "postcss-nesting": "^11.3.0",
     "postcss-preset-env": "^8.5.0",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.10.0",
     "resolve-url": "^0.2.1"

@@ -14,8 +14,10 @@ specifiers:
   postcss-each-variables: ^0.3.0
   postcss-import: ^15.1.0
   postcss-insert: ^1.0.0
+  postcss-nested-vars: ^1.0.0
   postcss-nesting: ^11.3.0
   postcss-preset-env: ^8.5.0
+  postcss-simple-vars: ^7.0.1
   prettier: ^2.8.8
   prettier-plugin-astro: ^0.10.0
   resolve-url: ^0.2.1
@@ -38,8 +40,10 @@ devDependencies:
   postcss-each-variables: 0.3.0
   postcss-import: 15.1.0_postcss@8.4.24
   postcss-insert: 1.0.0_eslint@8.43.0
+  postcss-nested-vars: 1.0.0
   postcss-nesting: 11.3.0_postcss@8.4.24
   postcss-preset-env: 8.5.0_postcss@8.4.24
+  postcss-simple-vars: 7.0.1_postcss@8.4.24
   prettier: 2.8.8
   prettier-plugin-astro: 0.10.0
   resolve-url: 0.2.1
@@ -4070,6 +4074,12 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
+  /postcss-nested-vars/1.0.0:
+    resolution: {integrity: sha512-LQCWpUIkKV3uBzbrc4pHjpWvs+NEZT8LXhtu61pMh9eKlK4oDxG8fINxkkPfVCg+6b4KEVW8uOq0pDY4pTUorw==}
+    dependencies:
+      postcss: 6.0.23
+    dev: true
+
   /postcss-nesting/11.3.0_postcss@8.4.24:
     resolution: {integrity: sha512-JlS10AQm/RzyrUGgl5irVkAlZYTJ99mNueUl+Qab+TcHhVedLiylWVkKBhRale+rS9yWIJK48JVzQlq3LcSdeA==}
     engines: {node: ^14 || ^16 || >=18}
@@ -4339,6 +4349,15 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
+    dev: true
+
+  /postcss-simple-vars/7.0.1_postcss@8.4.24:
+    resolution: {integrity: sha512-5GLLXaS8qmzHMOjVxqkk1TZPf1jMqesiI7qLhnlyERalG0sMbHIbJqrcnrpmZdKCLglHnRHoEBB61RtGTsj++A==}
+    engines: {node: '>=14.0'}
+    peerDependencies:
+      postcss: ^8.2.1
+    dependencies:
+      postcss: 8.4.24
     dev: true
 
   /postcss-svgo/6.0.0_postcss@8.4.24:

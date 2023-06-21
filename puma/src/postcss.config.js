@@ -9,6 +9,8 @@ module.exports = {
       require("autoprefixer"),
       require("cssnano"),
       require("postcss-nesting"),
+      require("postcss-nested-vars"),
+      require("postcss-simple-vars"),
     ],
   ],
 };
