@@ -20,24 +20,23 @@ import PostLinks from './PostLinks.astro';
     </div>
     <div id="skills">
       <h3>Skills</h3>
-    </divsk>
+    </div>
 
   </Resume>
 </main>
 
 <style>
-  .hero {
-    padding: var(--global-s2);
-    @insert .card
-  }
+.hero {
+  padding: var(--global-s2);
+  @insert .card
   @media (prefers-color-scheme: dark) {
-  .hero {
     background-color: var(--black);
     color: var(--white);
-    & h1{
+
+    & h1 {
       color: var(--white);
-      margin:0;
+      margin: 0;
     }
   }
-  }
+}
 </style>
