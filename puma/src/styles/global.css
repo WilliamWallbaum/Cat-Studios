@@ -1,5 +1,6 @@
+/* global.css */
 :root {
-  /* Sets global variables */
+  /* sets global variables */
   --primary-color: oklch(70% 0.1 125);
   --secondary-color: oklch(37.18% 0.071 172.23);
   --tertiary-color: oklch(58.26% 0.207 257.07);
@@ -7,66 +8,34 @@
   --red: oklch(20% 73 356);
   --yellow: oklch(84% 87 93);
 
-  /* Blacks */
-  /* --black: oklch(0% 0 0);
-  @each $i in 1 through 9 {
-    --black-#{$i}: oklch(0% 0 0 / calc(10% * #{$i}));
+  /* blacks */
+  --black: oklch(0% 0 0);
+
+  /* Generate variations of black */
+  /* @for $i in 1 to 9 {
+    --black-#{$i}: oklch(var(--black) / ($i * 0.1));
   } */
 
-  /* Whites */
-  /* --white: oklch(100% 0 0);
-  @each $i in 1 through 9 {
-    --white-#{$i}: oklch(100% 0 0 / calc(10% * #{$i}));
+  /* whites */
+  --white: oklch(100% 0 0);
+
+  /* Generate variations of white */
+  /* @for $i in 1 to 9 {
+    --white-#{$i}: oklch(var(--white) / ($i * 0.1));
   } */
 
-  /* Other global variables */
+  /* other global variables */
   --primary-font: sans-serif;
   --primary-text-color: oklch(0% 0 199 / 70%);
 
   --global-line-height: 1.5;
   --global-s1: 1rem;
-  --global-s2: 2rem;
-  --global-s3: 3rem;
-  --global-s4: 4rem;
+  --global-s2: calc(var(--global-s1) * 2);
+  --global-s3: calc(var(--global-s1) * 3);
+  --global-s4: calc(var(--global-s1) * 4);
   --animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   --animation-duration: 1s;
   --global-radius: 0.2rem;
   --global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
     calc(var(--global-s1) * 0.5) var(--black-5);
-}
-
-/* CSS Module 1: mast.css */
-.mast {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-areas: "site-title nav-links";
-  background-color: var(--black-7);
-}
-
-.site-title {
-  grid-area: site-title;
-  padding: calc(var(--global-s1) * 0.5);
-  font-size: 0.75rem;
-
-  h1,
-  a {
-    text-decoration: none;
-    color: var(--white-5);
-    margin: 0;
-  }
-}
-
-.nav-links {
-  grid-area: nav-links;
-  justify-self: end;
-  display: flex;
-  flex-direction: row;
-  padding: 0;
-  margin: 0 var(--global-s3) 0 0;
-  list-style: none;
-  gap: 1rem;
-
-  &.active {
-    background-color: var(--black-5);
-  }
 }
