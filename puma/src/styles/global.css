@@ -1,25 +1,25 @@
 :root {
-  /* sets global variables */
+  /* Sets global variables */
   --primary-color: oklch(70% 0.1 125);
   --secondary-color: oklch(37.18% 0.071 172.23);
   --tertiary-color: oklch(58.26% 0.207 257.07);
   --byzantium: oklch(42.74% 0.148 345.17);
-  --red: oklch(20% 73, 356);
+  --red: oklch(20% 73 356);
   --yellow: oklch(84% 87 93);
 
-  /* blacks */
-  --black: oklch(0% 0 0);
-  @for $i from 1 through 9 {
-    --black-#{$i}: oklch(0% 0 0 / (10% * $i));
-  }
+  /* Blacks */
+  /* --black: oklch(0% 0 0);
+  @each $i in 1 through 9 {
+    --black-#{$i}: oklch(0% 0 0 / calc(10% * #{$i}));
+  } */
 
-  /* whites */
-  --white: oklch(100% 0 0);
-  @for $i from 1 through 9 {
-    --white-#{$i}: oklch(100% 0 0 / (10% * $i));
-  }
+  /* Whites */
+  /* --white: oklch(100% 0 0);
+  @each $i in 1 through 9 {
+    --white-#{$i}: oklch(100% 0 0 / calc(10% * #{$i}));
+  } */
 
-  /* other global variables */
+  /* Other global variables */
   --primary-font: sans-serif;
   --primary-text-color: oklch(0% 0 199 / 70%);
 
@@ -33,4 +33,40 @@
   --global-radius: 0.2rem;
   --global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
     calc(var(--global-s1) * 0.5) var(--black-5);
+}
+
+/* CSS Module 1: mast.css */
+.mast {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: "site-title nav-links";
+  background-color: var(--black-7);
+}
+
+.site-title {
+  grid-area: site-title;
+  padding: calc(var(--global-s1) * 0.5);
+  font-size: 0.75rem;
+
+  h1,
+  a {
+    text-decoration: none;
+    color: var(--white-5);
+    margin: 0;
+  }
+}
+
+.nav-links {
+  grid-area: nav-links;
+  justify-self: end;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0 var(--global-s3) 0 0;
+  list-style: none;
+  gap: 1rem;
+
+  &.active {
+    background-color: var(--black-5);
+  }
 }
