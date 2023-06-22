@@ -15,35 +15,37 @@ const baseURL = import.meta.env.SITE
 
 <style>
     .mast {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-areas: "site-title nav-links";
-    background-color: var(--black-7);
-    }
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: "site-title nav-links";
+  background-color: var(--black-7);
+}
 
-    .site-title {
-    grid-area: site-title;
-    padding: calc(var(--global-s1) * .5);
-    font-size: .75rem;
-        & h1, a {
-            text-decoration: none;
-            color: var(--white-5);
-            margin:0;
-        }
-    }
+.site-title {
+  grid-area: site-title;
+  padding: calc(var(--global-s1) * 0.5);
+  font-size: 0.75rem;
 
-    .nav-links {
-    grid-area: nav-links;
-    justify-self: end;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 0 var(--global-s3) 0 0 ;
-    list-style: none;
-    gap: 1rem;
-        & .active {
-        background-color: var(--black-5);
-        }
-    }
+  h1,
+  a {
+    text-decoration: none;
+    color: var(--white-5);
+    margin: 0;
+  }
+}
 
+.nav-links {
+  grid-area: nav-links;
+  justify-self: end;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0 var(--global-s3) 0 0;
+  list-style: none;
+  gap: 1rem;
+
+  &.active {
+    background-color: var(--black-5);
+  }
+}
 </style>
