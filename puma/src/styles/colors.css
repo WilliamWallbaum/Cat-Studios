@@ -1,0 +1,42 @@
+$colors: (
+  primary: var(--primary-color),
+  secondary: var(--secondary-color),
+  tertiary: var(--tertiary-color),
+  lightblue: var(--lightblue),
+  red: var(--red),
+  yellow: var(--yellow),
+  black: var(--black),
+  white: var(--white),
+);
+
+/* shades */
+@for $i from 1 through 9 {
+  --gray-#{$i}: color(--oklch, 0, 0, calc(#{$i} * var(--oklch-l-scale)));
+}
+
+/* opacities */
+@for $i from 1 through 9 {
+  --black-#{$i}: color(--oklch, 0, 0, 0, #{$i}1%);
+  --white-#{$i}: color(--oklch, 100, 0, 0, #{$i}1%);
+}
+
+@each $key, $value in $colors {
+  .text-#{$key},
+  .bg-#{$key} {
+    color: var(--#{$key});
+    background-color: var(--#{$key});
+  }
+
+  @for $i from 1 through 9 {
+    $lightColor: color(oklch.mix(var(--white), var(--#{$key}), $i * 10%));
+    $darkColor: color(oklch.mix(var(--black), var(--#{$key}), $i * 10%));
+
+    .text-#{$key}-light-#{$i},
+    .bg-#{$key}-light-#{$i},
+    .text-#{$key}-dark-#{$i},
+    .bg-#{$key}-dark-#{$i} {
+      color: $lightColor;
+      background-color: $lightColor;
+    }
+  }
+}

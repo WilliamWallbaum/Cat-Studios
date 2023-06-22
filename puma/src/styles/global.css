@@ -1,0 +1,36 @@
+:root {
+  /* sets global variables */
+  --primary-color: oklch(70% 0.1 125);
+  --secondary-color: oklch(37.18% 0.071 172.23);
+  --tertiary-color: oklch(58.26% 0.207 257.07);
+  --byzantium: oklch(42.74% 0.148 345.17);
+  --red: oklch(20% 73, 356);
+  --yellow: oklch(84% 87 93);
+
+  /* blacks */
+  --black: oklch(0% 0 0);
+  @for $i from 1 through 9 {
+    --black-#{$i}: oklch(0% 0 0 / (10% * $i));
+  }
+
+  /* whites */
+  --white: oklch(100% 0 0);
+  @for $i from 1 through 9 {
+    --white-#{$i}: oklch(100% 0 0 / (10% * $i));
+  }
+
+  /* other global variables */
+  --primary-font: sans-serif;
+  --primary-text-color: oklch(0% 0 199 / 70%);
+
+  --global-line-height: 1.5;
+  --global-s1: 1rem;
+  --global-s2: 2rem;
+  --global-s3: 3rem;
+  --global-s4: 4rem;
+  --animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --animation-duration: 1s;
+  --global-radius: 0.2rem;
+  --global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
+    calc(var(--global-s1) * 0.5) var(--black-5);
+}

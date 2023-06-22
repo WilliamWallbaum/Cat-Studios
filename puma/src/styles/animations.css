@@ -1,0 +1,71 @@
+@keyframes bounceIn {
+  @for $i from 0 through 100 {
+    #{$i}% {
+      animation-timing-function: var(--animation-timing-function);
+    }
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.bounceIn {
+  animation-duration: var(--animation-duration);
+  animation-name: bounceIn;
+}
+
+/* Other animation keyframes and classes go here */
+
+.animated {
+  animation-duration: var(--animation-duration);
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+@for $i from 1 through 5 {
+  .animated.delay-#{$i}s {
+    animation-delay: #{$i}s;
+  }
+}
+
+.animated.fast {
+  animation-duration: 0.8s;
+}
+.animated.faster {
+  animation-duration: 0.5s;
+}
+.animated.slow {
+  animation-duration: 2s;
+}
+.animated.slower {
+  animation-duration: 3s;
+}
+
+@media (print) {
+  .animated {
+    animation: unset !important;
+    transition: none !important;
+  }
+}
