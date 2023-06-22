@@ -16,12 +16,10 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/prefetch": "^0.2.3",
     "@astrojs/rss": "^2.4.3",
-    "astro": "^2.6.6",
-    "sass": "^1.63.6"
+    "astro": "^2.6.6"
   },
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^2.2.3",
-    "@csstools/postcss-sass": "^5.0.1",
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.1",
@@ -30,6 +28,7 @@
     "postcss-each-variables": "^0.3.0",
     "postcss-import": "^15.1.0",
     "postcss-insert": "^1.0.0",
+    "postcss-nested": "^6.0.1",
     "postcss-nested-vars": "^1.0.0",
     "postcss-nesting": "^11.3.0",
     "postcss-preset-env": "^8.5.1",
