@@ -1,6 +1,6 @@
 /* global.css */
 :root {
-  /* sets global variables */
+  /* Sets global variables */
   --primary-color: oklch(70% 0.1 125);
   --secondary-color: oklch(37.18% 0.071 172.23);
   --tertiary-color: oklch(58.26% 0.207 257.07);
@@ -8,23 +8,35 @@
   --red: oklch(20% 73 356);
   --yellow: oklch(84% 87 93);
 
-  /* blacks */
-  --black: oklch(0% 0 0);
 
   /* Generate variations of black */
-  /* @for $i in 1 to 9 {
-    --black-#{$i}: oklch(var(--black) / ($i * 0.1));
-  } */
+  --black-9: oklch(0% 0 125 / 90%);
+  --black-8: oklch(0% 0 125 / 80%);
+  --black-7: oklch(0% 0 125 / 70%);
+  --black-6: oklch(0% 0 125 / 60%);
+  --black-5: oklch(0% 0 125 / 50%);
+  --black-4: oklch(0% 0 125 / 40%);
+  --black-3: oklch(0% 0 125 / 30%);
+  --black-2: oklch(0% 0 125 / 20%);
+  --black-1: oklch(0% 0 125 / 10%);
+  /* Black */
+  --black: oklch(0% 0 0);
 
-  /* whites */
-  --white: oklch(100% 0 0);
 
   /* Generate variations of white */
-  /* @for $i in 1 to 9 {
-    --white-#{$i}: oklch(var(--white) / ($i * 0.1));
-  } */
+  --white-9: oklch(100% 0 0 / 90%);
+  --white-8: oklch(100% 0 0 / 80%);
+  --white-7: oklch(100% 0 0 / 70%);
+  --white-6: oklch(100% 0 0 / 60%);
+  --white-5: oklch(100% 0 0 / 50%);
+  --white-4: oklch(100% 0 0 / 40%);
+  --white-3: oklch(100% 0 0 / 30%);
+  --white-2: oklch(100% 0 0 / 20%);
+  --white-1: oklch(100% 0 0 / 10%);
+  /* White */
+  --white: oklch(100% 0 0);
 
-  /* other global variables */
+  /* Other global variables */
   --primary-font: sans-serif;
   --primary-text-color: oklch(0% 0 199 / 70%);
 
