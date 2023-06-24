@@ -4,39 +4,31 @@ import Resume from '../layouts/sections/Resume.astro';
 import PostLinks from './PostLinks.astro';
 ---
 <main>
+  <!-- Hero Box -->
   <Full id="full-section" className="hero">
     <h1>Welcome to Cat Studios Online</h1>
     <p>Here's what Bill has been upto lately. </p>
   </Full>
-  <slot />
-  <PostLinks />
-  <Resume className="resume">
-    <h2>Bill's CV</h2>
-    <div id="work-history">
-      <h3>Work History</h3>
-    </div>
-    <div id="education">
-      <h3>Education</h3>
-    </div>
-    <div id="skills">
-      <h3>Skills</h3>
-    </div>
 
-  </Resume>
+  <!-- Passed in in content -->
+  <slot />
+  
+  <!-- Blog links -->
+  <PostLinks />
+
+  <!-- Reume  -->
+  <Resume className="resume" />
 </main>
 
 <style>
-.hero {
-  padding: var(--global-s2);
-  @insert .card
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--black);
-    color: var(--white);
+  .hero {
+    padding: var(--global-s2);
+      background-color: var(--black);
+      color:var(--primary-text-color);
 
-    & h1 {
-      color: var(--white);
-      margin: 0;
-    }
+      & h1 {
+        color: inherit;
+        margin: 0;
+      }
   }
-}
 </style>

@@ -1,21 +1,52 @@
 ---
-const { id = "resume", className = "container"} = Astro.props
+const { id = "resume-container", className = "resume"} = Astro.props
 ---
 
 <section id={id} class={className}>
+    <h2>Bill's CV</h2>
+
+    <div id="work-history" class="card">
+      <h3>Work History</h3>
+    </div>
+
+    <div id="education" class="card">
+      <h3>Education</h3>
+    </div>
+    
+    <div id="skills" class="card">
+      <h3>Skills</h3>
+    </div>
     <slot/>
 </section>
 
 <style>
-  section {
-    @insert .card
+  .resume {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    gap: var(--global-s2);
+    background-color: var(--byzantium);
+    padding: var(--global-s2) var(--global-s4) var(--global-s4);
+    color: var(--primary-text-color);
+
+    & h2 {
+      color: var(--primary-text-color);
+      width:100%;
+      padding:0;
+      font-size: 3rem;
+      text-transform: uppercase;
+    }
   }
+
   @media (prefers-color-scheme: dark) {
   .hero {
     background-color: var(--black);
-    color: var(--white);
-    & h1{
-      color: var(--white);
+    color: var(--primary-text-color);
+
+    & h1 {
+      color: var(--primary-text-color);
       margin:0;
     }
   }
