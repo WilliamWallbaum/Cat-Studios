@@ -1,15 +1,25 @@
 @mixin card {
   border-radius: var(--global-radius);
-  box-shadow: var(--global-shadow, calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.5) var(--black-5));
+  box-shadow: var(
+    --global-shadow,
+    calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
+      calc(var(--global-s1) * 0.5) var(--black-5)
+  );
   padding: var(--global-s2);
 }
 .card {
-        border-radius: var(--global-radius);
-        box-shadow: var(--global-shadow, calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.5) var(--black-5));
-        padding: var(--global-s2);
-        background-color: var(--black-1);
-        flex:1;
-      }
+  border-radius: var(--global-radius);
+  box-shadow: var(
+    --global-shadow,
+    calc(var(--global-s1) * 0.4)
+    calc(var(--global-s1) * 0.4)
+    calc(var(--global-s1) * 0.5)
+    var(--black-5)
+  );
+  padding: var(--global-s2);
+  background-color: var(--primary-background-color);
+  flex: 1;
+}
 
 @mixin rounded-box {
   border-radius: var(--global-radius);
