@@ -1,17 +1,6 @@
 /* colors.css */
-:root {
-  --colors-primary: var(--primary-color);
-  --colors-secondary: var(--secondary-color);
-  --colors-tertiary: var(--tertiary-color);
-  --colors-byzantium: var(--byzantium);
-  --colors-red: var(--red);
-  --colors-yellow: var(--yellow);
-  --black: var(--black);
-  --white: var(--white);
-}
-
 /* color classes */
-@let $colors: (
+$colors: (
   primary: --primary-color,
   secondary: --secondary-color,
   tertiary: --tertiary-color,
@@ -22,24 +11,61 @@
   white: --white
 );
 
-@each $key, $value in $colors {
+/* @each $key, $value in $colors {
   .text-#{$key} {
-    color: var(#{$value} / calc(#${$i} * 10));
+    color: var(--#{$value});
   }
   .bg-#{$key} {
-    background-color: var(#{$value} / calc(#${$i} * 10));
+    background-color: var(--#{$value});
   }
+} */
 
-  @let $light: oklch(var(--white) / 100%);
-  @let $dark: oklch(var(--black) / 100%);
+.text-primary {
+  color: var(--primary-color);
+}
+.text-secondary {
+  color: var(--secondary-color);
+}
+.text-tertiary {
+  color: var(--tertiary-color);
+}
+.text-byzantium {
+  color: var(--byzantium);
+}
+.text-red {
+  color: var(--red);
+}
+.text-yellow {
+  color: var(--yellow);
+}
+.text-black {
+  color: var(--black);
+}
+.text-white {
+  color: var(--white);
+}
 
-  @for $i from 1 to $gray-scale {
-    .text-#{$key}-light-#{$i},
-    .bg-#{$key}-light-#{$i},
-    .text-#{$key}-dark-#{$i},
-    .bg-#{$key}-dark-#{$i} {
-      color: $lightColor;
-      background-color: $lightColor;
-    }
-  }
+.bg-primary {
+  background-color: var(--primary-color);
+}
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+.bg-tertiary {
+  background-color: var(--tertiary-color);
+}
+.bg-byzantium {
+  background-color: var(--byzantium);
+}
+.bg-red {
+  background-color: var(--red);
+}
+.bg-yellow {
+  background-color: var(--yellow);
+}
+.bg-black {
+  background-color: var(--black);
+}
+.bg-white {
+  background-color: var(--white);
 }
