@@ -1,36 +1,39 @@
-$colors: (
-  primary: var(--primary-color),
-  secondary: var(--secondary-color),
-  tertiary: var(--tertiary-color),
-  lightblue: var(--lightblue),
-  red: var(--red),
-  yellow: var(--yellow),
-  black: var(--black),
-  white: var(--white),
+/* colors.css */
+:root {
+  --colors-primary: var(--primary-color);
+  --colors-secondary: var(--secondary-color);
+  --colors-tertiary: var(--tertiary-color);
+  --colors-byzantium: var(--byzantium);
+  --colors-red: var(--red);
+  --colors-yellow: var(--yellow);
+  --black: var(--black);
+  --white: var(--white);
+}
+
+/* color classes */
+@let $colors: (
+  primary: --primary-color,
+  secondary: --secondary-color,
+  tertiary: --tertiary-color,
+  byzantium: --byzantium,
+  red: --red,
+  yellow: --yellow,
+  black: --black,
+  white: --white
 );
 
-/* shades */
-@for $i from 1 through 9 {
-  --gray-#{$i}: color(--oklch, 0, 0, calc(#{$i} * var(--oklch-l-scale)));
-}
-
-/* opacities */
-@for $i from 1 through 9 {
-  --black-#{$i}: color(--oklch, 0, 0, 0, #{$i}1%);
-  --white-#{$i}: color(--oklch, 100, 0, 0, #{$i}1%);
-}
-
 @each $key, $value in $colors {
-  .text-#{$key},
+  .text-#{$key} {
+    color: var(#{$value} / calc(#${$i} * 10));
+  }
   .bg-#{$key} {
-    color: var(--#{$key});
-    background-color: var(--#{$key});
+    background-color: var(#{$value} / calc(#${$i} * 10));
   }
 
-  @for $i from 1 through 9 {
-    $lightColor: color(oklch.mix(var(--white), var(--#{$key}), $i * 10%));
-    $darkColor: color(oklch.mix(var(--black), var(--#{$key}), $i * 10%));
+  @let $light: oklch(var(--white) / 100%);
+  @let $dark: oklch(var(--black) / 100%);
 
+  @for $i from 1 to $gray-scale {
     .text-#{$key}-light-#{$i},
     .bg-#{$key}-light-#{$i},
     .text-#{$key}-dark-#{$i},
