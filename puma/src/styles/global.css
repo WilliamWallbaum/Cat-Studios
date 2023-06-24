@@ -1,27 +1,25 @@
 /* global.css */
 :root {
   /* Sets global variables */
-  --primary-color: oklch(70% 0.1 125);
-  --secondary-color: oklch(37.18% 0.071 172.23);
-  --tertiary-color: oklch(58.26% 0.207 257.07);
-  --byzantium: oklch(42.74% 0.148 345.17);
-  --red: oklch(20% 73 356);
-  --yellow: oklch(84% 87 93);
-
+  --primary-color: oklch(43% 0.15 125);
+  --secondary-color: oklch(43% 0.15 172.23);
+  --tertiary-color: oklch(57% 0.107 194.29);
+  --byzantium: oklch(37.4% 0.107 293.8);
+  --red: oklch(43% 0.15 35.8);
+  --yellow: oklch(94.8% 0.15 93);
 
   /* Generate variations of black */
-  --black-9: oklch(0% 0 125 / 90%);
-  --black-8: oklch(0% 0 125 / 80%);
-  --black-7: oklch(0% 0 125 / 70%);
-  --black-6: oklch(0% 0 125 / 60%);
-  --black-5: oklch(0% 0 125 / 50%);
-  --black-4: oklch(0% 0 125 / 40%);
-  --black-3: oklch(0% 0 125 / 30%);
-  --black-2: oklch(0% 0 125 / 20%);
-  --black-1: oklch(0% 0 125 / 10%);
+  --black-9: oklch(0% 0 0 / 90%);
+  --black-8: oklch(0% 0 0 / 80%);
+  --black-7: oklch(0% 0 0 / 70%);
+  --black-6: oklch(0% 0 0 / 60%);
+  --black-5: oklch(0% 0 0 / 50%);
+  --black-4: oklch(0% 0 0 / 40%);
+  --black-3: oklch(0% 0 0 / 30%);
+  --black-2: oklch(0% 0 0 / 20%);
+  --black-1: oklch(0% 0 0 / 10%);
   /* Black */
   --black: oklch(0% 0 0);
-
 
   /* Generate variations of white */
   --white-9: oklch(100% 0 0 / 90%);
@@ -38,7 +36,6 @@
 
   /* Other global variables */
   --primary-font: sans-serif;
-  --primary-text-color: oklch(0% 0 199 / 70%);
 
   --global-line-height: 1.5;
   --global-s1: 1rem;
@@ -50,4 +47,13 @@
   --global-radius: 0.2rem;
   --global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
     calc(var(--global-s1) * 0.5) var(--black-5);
+
+  @media (prefers-color-scheme: dark) {
+    --primary-text-color: oklch(100% 0 0 / 50%);
+    --primary-background-color: oklch(0% 0 0 / 50%);
+  }
+  @media (prefers-color-scheme: light) {
+    --primary-text-color: oklch(0% 0 0 / 50%);
+    --primary-background-color: oklch(100% 0 0 / 50%);
+  }
 }
