@@ -39,7 +39,7 @@ code {
 .container {
   width: 80%;
   margin: auto;
-  background-color: var(--black-2);
+  background-color: var(--primary-background-color);
 }
 
 p {
@@ -49,11 +49,11 @@ p {
 
 h1 {
   margin: var(--global-s2) 0;
-  color: var(--black-5);
+  color: var(--primary-text-color);
 }
 
 h2 {
-  color: var(--black-6);
+  color: var(--primary-text-color);
 }
 
 h3 {
@@ -62,8 +62,8 @@ h3 {
 }
 
 code {
-  background-color: var(--black-2);
+  background-color: var(--primary-background-color);
   border-radius: var(--global-radius);
   padding: 0px 5px 3px;
-  color: var(--black-7);
+  color: var(--primary-text-color);
 }

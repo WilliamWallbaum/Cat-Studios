@@ -7,12 +7,15 @@
   --byzantium: oklch(37.4% 0.107 293.8);
   --red: oklch(43% 0.15 35.8);
   --yellow: oklch(94.8% 0.15 93);
+
   --primary-font: sans-serif;
   --global-line-height: 1.5;
+
   --global-s1: 1rem;
   --global-s2: calc(var(--global-s1) * 2);
   --global-s3: calc(var(--global-s1) * 3);
   --global-s4: calc(var(--global-s1) * 4);
+
   --animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   --animation-duration: 1s;
   --global-radius: 0.2rem;
@@ -32,12 +35,12 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    --primary-text-color: oklch(100% 0 0 / 50%);
-    --primary-background-color: oklch(0% 0 0 / 50%);
+    --primary-text-color: oklch(0% 0 0 / 50%);
+    --primary-background-color: oklch(100% 0 0 / 10%);
   }
 
   @media (prefers-color-scheme: light) {
-    --primary-text-color: oklch(0% 0 0 / 50%);
-    --primary-background-color: oklch(100% 0 0 / 50%);
+    --primary-text-color: oklch(0% 0 0 / 30%);
+    --primary-background-color: oklch(0% 0 0 / 10%);
   }
 }
