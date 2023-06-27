@@ -4,20 +4,9 @@ import Resume from '../layouts/sections/Resume.astro';
 import PostLinks from './PostLinks.astro';
 ---
 <main>
-  <!-- Hero Box -->
-  <Full id="full-section" className="hero">
-    <h1>Welcome to Cat Studios Online</h1>
-    <p>Here's what Bill has been upto lately. </p>
-  </Full>
 
   <!-- Passed in in content -->
   <slot />
-  
-  <!-- Blog links -->
-  <PostLinks />
-
-  <!-- Reume  -->
-  <Resume className="resume" />
 </main>
 
 <style lang="scss">

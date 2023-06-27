@@ -11,14 +11,16 @@ import "@styles/styles.scss";
   <Head pageTitle="Home" />
   <body>
     <Header />
-    <Main />
+    <Main>
+      <slot />
+    </Main>
     <Footer />
   </body>
 </html>
 
 <style lang="scss">
 body {  
-  background-color:  var(--primary-color);
+  background-color:  var(--primary-background-color);
 }
 main {
   background-color: var(--primary-background-color);
