@@ -1,5 +1,20 @@
 ---
+import PostLinks from "@components/PostLinks.astro";
 import LayoutBasic from "@layouts/Layout-Basic.astro";
+import Full from "@layouts/sections/Full.astro";
+import Resume from "@layouts/sections/Resume.astro";
 ---
 
-<LayoutBasic />
+<LayoutBasic>
+  <!-- Hero Box -->
+  <Full id="full-section" className="hero">
+    <h1>Welcome to Cat Studios Online</h1>
+    <p>Here's what Bill has been upto lately. </p>
+  </Full>
+  
+  <!-- Blog links -->
+  <PostLinks />
+
+  <!-- Reume  -->
+  <Resume className="resume" />
+</LayoutBasic>
