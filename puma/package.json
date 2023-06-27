@@ -17,20 +17,21 @@
     "@astrojs/prefetch": "^0.2.3",
     "@astrojs/rss": "^2.4.3",
     "astro": "^2.7.0",
-    "pnpm": "^8.6.3"
+    "pnpm": "^8.6.5"
   },
   "devDependencies": {
-    
-    "postcss-import": "^15.1.0",
-    "postcss-nested": "^6.0.1",
-    "postcss-extend-rule": "^4.0.0",
-    "postcss-advanced-variables": "^3.0.1",
-    "postcss-preset-env": "^8.5.1",
     "autoprefixer": "^10.4.14",
-    "postcss-atroot": "^0.2.3",
     "cssnano": "^6.0.1",
     "eslint": "^8.43.0",
     "postcss": "^8.4.24",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-atroot": "^0.2.3",
+    "postcss-extend-rule": "^4.0.0",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^8.5.1",
+    "postcss-property-lookup": "^3.0.0",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.10.0"
   }
