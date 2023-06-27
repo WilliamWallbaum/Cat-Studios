@@ -1,0 +1,21 @@
+/* colors.scss */
+$colors: (
+  "primary": "--primary-color",
+  "secondary": "--secondary-color",
+  "tertiary": "--tertiary-color",
+  "byzantium": "--byzantium",
+  "red": "--red",
+  "yellow": "--yellow",
+  "black": "--black",
+  "white": "--white",
+);
+
+@each $key, $value in $colors {
+  .text-#{$key} {
+    color: var(#{$value});
+  }
+
+  .bg-#{$key} {
+    background-color: var(#{$value});
+  }
+}

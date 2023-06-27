@@ -13,40 +13,40 @@ const baseURL = import.meta.env.SITE
     </nav>
 </header>
 
-<style>
+<style lang="scss">
   .mast {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-areas: "site-title nav-links";
     background-color: var(--tertiary-color); 
     color: var(--primary-text-color);
-  }
-  
-  .site-title {
-    grid-area: site-title;
-    padding: calc(var(--global-s1) * 0.5);
-    font-size: 0.75rem;
 
-    & h1,
-    & a {
-      text-decoration: none;
-      color: inherit;
-      margin: 0;
+    .site-title {
+      grid-area: site-title;
+      padding: calc(var(--global-s1) * 0.5);
+      font-size: 0.75rem;
+
+      h1, a {
+        text-decoration: none;
+        color: inherit;
+        margin: 0;
+      }
+    }
+
+    .nav-links {
+      grid-area: nav-links;
+      justify-self: end;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      margin: 0 var(--global-s3) 0 0;
+      list-style: none;
+      gap: 1rem;
+
+      .active {
+        background-color: var(--black-5);
+      }
     }
   }
-  
-  .nav-links {
-    grid-area: nav-links;
-    justify-self: end;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 0 var(--global-s3) 0 0;
-    list-style: none;
-    gap: 1rem;
 
-    & .active {
-      background-color: var(--black-5);
-    }
-  }
 </style>

@@ -1,3 +1,5 @@
+$animation-duration: 1s;
+
 @keyframes bounceIn {
   @for $i from 0 through 100 {
     #{$i}% {
@@ -28,39 +30,43 @@
   }
 }
 
-.bounceIn {
-  animation-duration: var(--animation-duration);
+@mixin animation($duration) {
+  animation-duration: $duration;
   animation-name: bounceIn;
+}
+
+.bounceIn {
+  @include animation($animation-duration);
 }
 
 /* Other animation keyframes and classes go here */
 
 .animated {
-  animation-duration: var(--animation-duration);
+  @include animation($animation-duration);
   animation-fill-mode: both;
-}
 
-.animated.infinite {
-  animation-iteration-count: infinite;
-}
-
-@for $i from 1 through 5 {
-  .animated.delay-#{$i}s {
-    animation-delay: #{$i}s;
+  &.infinite {
+    animation-iteration-count: infinite;
   }
-}
 
-.animated.fast {
-  animation-duration: 0.8s;
-}
-.animated.faster {
-  animation-duration: 0.5s;
-}
-.animated.slow {
-  animation-duration: 2s;
-}
-.animated.slower {
-  animation-duration: 3s;
+  @for $i from 1 through 5 {
+    &.delay-#{$i}s {
+      animation-delay: $i * 1s;
+    }
+  }
+
+  &.fast {
+    animation-duration: 0.8s;
+  }
+  &.faster {
+    animation-duration: 0.5s;
+  }
+  &.slow {
+    animation-duration: 2s;
+  }
+  &.slower {
+    animation-duration: 3s;
+  }
 }
 
 @media (print) {

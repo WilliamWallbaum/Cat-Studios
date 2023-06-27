@@ -1,0 +1,16 @@
+/* mixins.scss */
+@mixin card {
+  border-radius: var(--global-radius);
+  box-shadow: var(--global-shadow, calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.5) var(--black-5));
+  padding: var(--global-s2);
+}
+
+.card {
+  @include card;
+  background-color: var(--primary-background-color);
+  flex: 1;
+}
+
+@mixin rounded-box {
+  border-radius: var(--global-radius);
+}

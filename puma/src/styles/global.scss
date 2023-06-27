@@ -1,4 +1,4 @@
-/* global.css */
+/* global.scss */
 :root {
   /* Sets global variables */
   --primary-color: oklch(43% 0.15 125);
@@ -7,36 +7,7 @@
   --byzantium: oklch(37.4% 0.107 293.8);
   --red: oklch(43% 0.15 35.8);
   --yellow: oklch(94.8% 0.15 93);
-
-  /* Generate variations of black */
-  --black-9: oklch(0% 0 0 / 90%);
-  --black-8: oklch(0% 0 0 / 80%);
-  --black-7: oklch(0% 0 0 / 70%);
-  --black-6: oklch(0% 0 0 / 60%);
-  --black-5: oklch(0% 0 0 / 50%);
-  --black-4: oklch(0% 0 0 / 40%);
-  --black-3: oklch(0% 0 0 / 30%);
-  --black-2: oklch(0% 0 0 / 20%);
-  --black-1: oklch(0% 0 0 / 10%);
-  /* Black */
-  --black: oklch(0% 0 0);
-
-  /* Generate variations of white */
-  --white-9: oklch(100% 0 0 / 90%);
-  --white-8: oklch(100% 0 0 / 80%);
-  --white-7: oklch(100% 0 0 / 70%);
-  --white-6: oklch(100% 0 0 / 60%);
-  --white-5: oklch(100% 0 0 / 50%);
-  --white-4: oklch(100% 0 0 / 40%);
-  --white-3: oklch(100% 0 0 / 30%);
-  --white-2: oklch(100% 0 0 / 20%);
-  --white-1: oklch(100% 0 0 / 10%);
-  /* White */
-  --white: oklch(100% 0 0);
-
-  /* Other global variables */
   --primary-font: sans-serif;
-
   --global-line-height: 1.5;
   --global-s1: 1rem;
   --global-s2: calc(var(--global-s1) * 2);
@@ -48,10 +19,23 @@
   --global-shadow: calc(var(--global-s1) * 0.4) calc(var(--global-s1) * 0.4)
     calc(var(--global-s1) * 0.5) var(--black-5);
 
+  // Generate variations of black
+  @for $i from 1 to 10 {
+    $percentage: 10% * $i;
+    --black-#{$i}: oklch(0% 0 0 / #{$percentage});
+  }
+
+  // Generate variations of white
+  @for $i from 1 to 10 {
+    $percentage: 10% * $i;
+    --white-#{$i}: oklch(100% 0 0 / #{$percentage});
+  }
+
   @media (prefers-color-scheme: dark) {
     --primary-text-color: oklch(100% 0 0 / 50%);
     --primary-background-color: oklch(0% 0 0 / 50%);
   }
+
   @media (prefers-color-scheme: light) {
     --primary-text-color: oklch(0% 0 0 / 50%);
     --primary-background-color: oklch(100% 0 0 / 50%);
