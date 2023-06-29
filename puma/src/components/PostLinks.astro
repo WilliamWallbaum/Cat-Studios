@@ -13,6 +13,7 @@ const blog = await Astro.glob("../content/blog/*.md");
       {
         blog.map((post) => (
           <li id={post.frontmatter.title} class="card">
+              <a class="blog-post-a" href={post.url}>
             <img
               class="blog-post-img"
               src={post.frontmatter.image.url}
@@ -21,11 +22,10 @@ const blog = await Astro.glob("../content/blog/*.md");
               width="250px"
             />
             <h3>
-              <a class="blog-post-a" href={post.url}>
                 {post.frontmatter.title}
-              </a>
             </h3>
             <p>{post.frontmatter.description}</p>
+              </a>
           </li>
         ))
       }
@@ -36,11 +36,12 @@ const blog = await Astro.glob("../content/blog/*.md");
 <style lang="scss">
   section#postlinks {
     display: grid;
-    padding: var(--global-s2) var(--global-s4);
+    padding: var(--global-s2) 0;
     grid-template-areas: "header" "posts";
   }
 
   .post-section-header {
+    padding: var(--global-s2) var(--global-s4);
     grid-area: header;
     text-align: center;
     
@@ -56,14 +57,15 @@ const blog = await Astro.glob("../content/blog/*.md");
   .post-container {
     grid-area: posts;
     width: inherit;
-    padding: var(--global-s1);
+    padding: var(--global-s3);
   }
 
   #blog-post-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: var(--global-s2);
     margin: 0;
     padding: 0;
-    gap: var(--global-s2);
 
     li {
       display: flex;
