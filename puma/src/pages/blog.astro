@@ -1,8 +1,38 @@
 ---
-import MarkdownPostLayout from "@layouts/MarkdownPostLayout.astro"
-
+import LayoutBasic from "@layouts/Layout-Basic.astro"
+const blog = await Astro.glob("../content/blog/*.md");
+const { frontmatter } = Astro.props;
 ---
 
-<MarkdownPostLayout>
+<LayoutBasic mainClass="container">
+<section>
     <h1>Blog</h1>
-</MarkdownPostLayout>
+    {blog.map((post) => (
+        <article id={post.frontmatter.title} class="">
+            <img
+                src={post.frontmatter.image.url}
+                alt={post.frontmatter.image.alt}
+                height="250px"
+                width="250px"
+            />
+            <h3>
+                Title: {post.frontmatter.title}
+            </h3>
+                
+            <p>layout: {post.frontmatter.layout}</p>
+            <p>title: {post.frontmatter.title}</p>
+            <p>pubDate: {post.frontmatter.pubDate}</p>
+            <p>description: {post.frontmatter.description}</p>
+        </article>
+    ))}
+</section>
+</LayoutBasic>
+
+<style lang="scss">
+    section{
+        width: 80%;
+    }
+    article{
+        background-color: var(--tertiary-color);
+    }
+</style>
