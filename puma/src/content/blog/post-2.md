@@ -1,11 +1,11 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
-title: My Second Blog Post
-author: Astro Learner
+layout: '../../layouts/MarkdownPostLayout.astro'
+title: 'My Second Blog Post'
+author: 'Astro Learner'
 description: "After learning some Astro, I couldn't stop!"
 image:
-  url: "https://astro.build/assets/blog/astro-showcase/astro-showcase-screenshot.jpg"
-  alt: "Thumbnails of websites from the Astro Showcase site."
+  url: "https://www.catsimaginganddesign.com/wp-content/uploads/2020/05/Floral-Tip-1024x1024.png"
+  alt: "This gives a consistent super clear image that allows your clientele to easily recognize your business"
 pubDate: 2022-07-08
 tags: ["astro", "blogging", "learning in public", "successes"]
 ---
