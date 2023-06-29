@@ -18,3 +18,16 @@ import Resume from "@layouts/sections/Resume.astro";
   <!-- Reume  -->
   <Resume className="resume" />
 </LayoutBasic>
+
+<style lang="scss">  
+  .hero {
+    padding: var(--global-s2);
+      background-color: var(--primary-background-color);
+      color: var(--primary-text-color);
+
+      & h1 {
+        color: inherit;
+        margin: 0;
+      }
+  }
+</style>
