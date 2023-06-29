@@ -1,23 +1,14 @@
 ---
-import Full from '../layouts/sections/Full.astro';
-import Resume from '../layouts/sections/Resume.astro';
-import PostLinks from './PostLinks.astro';
+const { mainClass } = Astro.props;
 ---
-<main>
-
-  <!-- Passed in in content -->
+<main class={mainClass}>
+  <!-- Passed in content -->
   <slot />
 </main>
 
 <style lang="scss">
-  .hero {
-    padding: var(--global-s2);
-      background-color: var(--black-9);
-      color: var(--primary-text-color);
-
-      & h1 {
-        color: inherit;
-        margin: 0;
-      }
+  main {
+    background-color: var(--primary-background-color);
+    display: grid;
   }
 </style>
