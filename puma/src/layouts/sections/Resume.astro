@@ -1,12 +1,38 @@
 ---
 const { id = "resume-container", className = "resume"} = Astro.props
+import json from "../../assests/BillWallbaum.json"
+ const { about, education, work_history, skills, certifications } = json;
 ---
 
 <section id={id} class={className}>
     <h2>Bill's CV</h2>
 
-    <div id="work-history" class="card">
+    <div id="work-history"  class="card">
       <h3>Work History</h3>
+      {work_history.map((job, index) => (
+        <div class="job">
+          <img class="job-logo" src={job.employer.logo} alt={job.employer.logo}>
+          <div id="title">
+            <h4 class="job-employer">{job.employer.name}</h4>
+
+            <ul class="job-positions"> 
+              {job.job_title.map((key) => (
+                <li class="job-position">
+                  {key}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="info">
+            <p>Employment Type: {job.employment_type}</p>
+            <p>{job.start_date}</p>
+            <p>End Date: {job.end_date}</p>
+            <p>Duration: {job.duration}</p>
+            <p>Location: {job.location}</p>
+          </div>
+        </div>
+      ))}
     </div>
 
     <div id="education" class="card">
@@ -39,16 +65,44 @@ const { id = "resume-container", className = "resume"} = Astro.props
       text-transform: uppercase;
     }
   }
-
-  @media (prefers-color-scheme: dark) {
-  .hero {
-    background-color: var(--black);
-    color: var(--primary-text-color);
-
-    & h1 {
-      color: var(--primary-text-color);
-      margin:0;
-    }
+  #work-history {
+    display: grid;
+    gap: var(--global-s1);
   }
+  .job {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "image info";
+    background-color: var(--black-4);
+    align-items: center;
+    gap: var(--global-s1);
+    padding: var(--global-s1);
+    border-radius: var(--global-radius);
+  }
+  #title{    
+    grid-area: info;
+  }
+  .job-employer {
+    margin: 0;
+    padding: 0;
+  }
+  .job-positions {
+    display: flex;
+    flex-direction: row;
+    gap: var(--global-s1);
+    padding: 0;
+    margin: 5px 0;
+  }
+  .job-position {
+    display: flex;
+  }
+  .job-logo {
+    grid-area: image;
+    max-width:75px;
+    filter: drop-shadow(var(--global-shadow));
+    fill: var(--primary-color);
+  }
+  .info {
+    display:none
   }
 </style>

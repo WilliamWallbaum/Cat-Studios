@@ -1,0 +1,166 @@
+{
+  "about": [
+    {
+      "name": "Bill Wallbaum",
+      "pronouns": "He/Him",
+      "profession": ["Graphic Designer", "Front-End Developer"],
+      "location": "Colorado Springs, Colorado, United States",
+      "linkedin": "linkedin.com/in/billwallbaum",
+      "website": "catsimaginganddesign.com",
+      "phone": "7193890188",
+      "email": "bill@catsimaginganddesign.com",
+      "twitter": "CIandD",
+      "birthday": "October 7",
+      "bio": "It's amazing how fast the world changes. When I first started a simple flat image was great. Today's designer knows 3-d, video and motion graphics, vector design, social media management, UX/UI design and so much more. Over the past 15 years, I have learned so much, and continue to learn every day. I do it so when you come to me with the question 'Why should I choose you?' I can truly say 'I'm ready'. Together, we can go... beyond creative."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Colorado Technical University",
+      "area": "Bachelor of Science in Graphic Design",
+      "studyType": "Bachelor's degree",
+      "startDate": "2008",
+      "endDate": "2011",
+      "location": "Colorado Springs, Colorado, United States"
+    },
+    {
+      "institution": "Pikes Peak State College",
+      "area": "Associate of Applied Science in Graphic Design",
+      "studyType": "Associate degree",
+      "startDate": "2005",
+      "endDate": "2007",
+      "location": "Colorado Springs, Colorado, United States"
+    }
+  ],
+  "work_history": [
+    {
+      "job_title": ["Graphic Designer", "Front-End Developer"],
+      "employer": {
+        "name": "Advanced Affordable Hearing",
+        "logo": "../Cat-Logo.svg"
+      },
+      "employment_type": "Full-time",
+      "start_date": "May 2022",
+      "end_date": "Present",
+      "duration": "1 yr",
+      "location": "Colorado Springs, Colorado, United States",
+      "responsibilities": [
+        "Conceptualize and design engaging email marketing campaigns and social media content, resulting in increased click-through rates and engagement.",
+        "Create high-quality print materials, including magazine ads and mailers, using Adobe Creative Suite.",
+        "Manage and maintain the company's website using WordPress and Shopify.",
+        "Conduct regular analytics audits and integrate data into marketing campaigns for improved ROI.",
+        "Collaborate with cross-functional teams, including marketing and product development, to ensure brand consistency across all touchpoints."
+      ]
+    },
+    {
+      "job_title": ["Founder", "Designer"],
+      "employer": {
+        "name": "Cat's Imaging And Design",
+        "logo": "../Cat-Logo.svg"
+      },
+      "employment_type": "Freelance",
+      "start_date": "Jan 2005",
+      "end_date": "Present",
+      "duration": "18 yrs 4 mos",
+      "location": "Colorado Springs, Colorado, United States",
+      "responsibilities": [
+        "Create and execute marketing campaigns, including social networking and web page development, for a variety of clients.",
+        "Design high-quality print materials, including brochures, magazines, and vehicle graphics, using Adobe Creative Suite.",
+        "Manage client relationships, including leading client meetings and presenting design concepts.",
+        "Develop and maintain brand identities for a variety of clients.",
+        "Utilize After Effects and Premier to create engaging video content for clients."
+      ]
+    },
+    {
+      "job_title": ["Senior Graphic Designer"],
+      "employer": {
+        "name": "Copy Experts",
+        "logo": "../Cat-Logo.svg"
+      },
+      "employment_type": "Full-time",
+      "start_date": "Feb 2015",
+      "end_date": "Jun 2021",
+      "duration": "6 yrs 5 mos",
+      "location": "Colorado Springs, Colorado, United States · On-site",
+      "responsibilities": [
+        "Created and executed successful print and digital marketing campaigns for a variety of clients, resulting in increased engagement and sales.",
+        "Designed high-quality print materials, including brochures, business cards, and book covers, using Adobe Creative Suite.",
+        "Managed client relationships, including leading client meetings and presenting design concepts.",
+        "Coordinated with vendors to ensure the timely delivery of materials.",
+        "Developed and implemented new design processes to increase efficiency and improve quality control."
+      ]
+    }
+  ],
+  "skills": [
+    "Graphic Design",
+    "Drupal",
+    "Packaging Design",
+    "Microsoft Excel",
+    "Visual Basic for Applications (VBA)",
+    "WordPress",
+    "Web Design",
+    "Brochures",
+    "Layout",
+    "Magazines",
+    "Promotions",
+    "Production",
+    "Retouching",
+    "Programming",
+    "Shopify",
+    "UX/UI Design",
+    "Social Media Management",
+    "Video and Motion Graphics",
+    "Vector Design",
+    "Analytics"
+  ],
+  "certifications": [
+    {
+      "issuer": "LinkedIn",
+      "name": "Learning ECMAScript 6+ (ES6+)",
+      "date": "Apr 2023",
+      "skills": ["ECMAScript"]
+    },
+    {
+      "issuer": "LinkedIn",
+      "name": "React.js Essential Training",
+      "date": "Apr 2023",
+      "skills": ["React.js"]
+    },
+    {
+      "issuer": "LinkedIn",
+      "name": "Become a Software Developer",
+      "date": "Mar 2023",
+      "skills": ["Software Development"]
+    },
+    {
+      "issuer": "LinkedIn",
+      "name": "Learning Java 11",
+      "date": "Feb 2023",
+      "skills": []
+    },
+    {
+      "issuer": "LinkedIn",
+      "name": "JavaScript Essential Training",
+      "date": "Jan 2023",
+      "skills": ["JavaScript"]
+    },
+    {
+      "issuer": "LinkedIn",
+      "name": "Learning Python",
+      "date": "Jan 2023",
+      "skills": ["Python"]
+    },
+    {
+      "issuer": "LinkedIn",
+      "name": "CSS Essential Training",
+      "date": "Dec 2022",
+      "skills": ["Cascading Style Sheets (CSS)"]
+    },
+    {
+      "issuer": "LinkedIn",
+      "name": "HTML Essential Training",
+      "date": "Dec 2022",
+      "skills": ["HTML"]
+    }
+  ]
+}
