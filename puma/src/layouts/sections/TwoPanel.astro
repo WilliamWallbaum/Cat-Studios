@@ -1,0 +1,23 @@
+---
+import Column from "@components/Column.astro";
+import PageSection from "@components/PageSection.astro";
+const { sectId, pannelClasses = [], colOneClass = [], colTwoClass = [] } = Astro.props
+const sectionClasses = ["container", ...pannelClasses];
+const colOneClasses = [...colOneClass, "col-1"];
+const colTwoClasses = [...colTwoClass, "col-2"];
+---
+
+<PageSection sectId={sectId} sectionClasses={sectionClasses}>
+    <Column id="left-container" colClass={colOneClasses}>
+      <slot name="left-col"/>
+    </Column>
+    <Column id="right-container" colClass={colTwoClasses}>
+      <slot name="right-col"/>
+    </Column>
+</PageSection>
+
+<style lang="scss"> 
+    .container {
+        background-color: var(--byzantium);
+    }
+</style>
