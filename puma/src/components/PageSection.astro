@@ -1,0 +1,14 @@
+---
+const { sectId = "full-section", sectionClasses = ["section"] } = Astro.props
+const sectionClassList = [...sectionClasses];
+---
+
+<section id={sectId} class:list={new Set(sectionClassList)}>
+<slot>
+</section>
+
+<style lang="scss">
+  section {
+    display: grid;
+  }
+</style>
