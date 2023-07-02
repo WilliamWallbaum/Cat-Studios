@@ -1,0 +1,16 @@
+---
+const { id, colClass = ["col"] } = Astro.props
+const classes = [...colClass]
+---
+
+<div id={id} class:list={new Set(classes)}>
+    <slot/>
+</div> 
+
+<style lang="scss"> 
+    .col {
+        display:grid;
+        gap: var(--global-s1);
+        padding: var(--global-s1);
+    }
+</style>
