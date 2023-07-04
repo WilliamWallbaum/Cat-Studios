@@ -1,11 +1,19 @@
 ---
 import LayoutBasic from "@layouts/Layout-Basic.astro";
 import Resume from "@layouts/sections/Resume.astro";
+
+const pannelClasses = ["c-46", "bg-byzantium"];
+const colOneClasses = [];
+const colTwoClasses = [];
+const title = "About";
+
 ---
 
 <LayoutBasic>
-    <h1>About</h1>
 
   <!-- Reume  -->
-  <Resume className="resume" />
+  <Resume sectId="resume" pannelClass={pannelClasses} colOneClass={colOneClasses} colTwoClass={colTwoClasses} title={title}>
+  <h2>this is slotted information</h2>
+  <p>Slotted information can be useful in situations where you need to add just a little bit of information to any given component.</p>
+  </Resume>
 </LayoutBasic>

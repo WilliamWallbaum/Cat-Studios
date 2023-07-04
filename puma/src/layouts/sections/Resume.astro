@@ -1,19 +1,44 @@
 ---
-const { id = "resume-container", className = "resume"} = Astro.props
-import json from "../../assests/BillWallbaum.json"
- const { about, education, work_history, skills, certifications } = json;
+import TwoPanelLeft from "@layouts/sections/TwoPanel.astro";
+const { sectId="resume-container", pannelClass = [], colOneClass = [], colTwoClass = [], title = "Section Title"} = Astro.props
+const sectionClasses = [...pannelClass];
+const colOneClasses = [...colOneClass];
+const colTwoClasses = [...colTwoClass];
+
+// resume information
+import json from "../../assests/BillWallbaum.json";
+const { about, education, work_history, skills, certifications } = json;
+
 ---
 
-<section id={id} class={className}>
-    <h2>Bill's CV</h2>
+<script>
+  function toggleVisibility(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.display = element.style.display === 'none' ? 'grid' : 'none';
+  }
+</script>
 
-    <div id="work-history"  class="card">
+<TwoPanelLeft sectId={sectId} sectionClass={sectionClasses} colOneClass = {colOneClasses} colTwoClass={colTwoClasses}>
+    <div class = "section-header" slot="intro">
+      <h2>{title}</h2>
+    <slot/>
+    </div>
+    
+    <!-- Work History -->
+    <div id="jobs-label" slot="left-col"  class="card">
       <h3>Work History</h3>
+    </div>
+
+    <div slot="right-col" id="jobs-info" class="card" style="display: grid;">
       {work_history.map((job, index) => (
-        <div class="job">
-          <img class="job-logo" src={job.employer.logo} alt={job.employer.logo}>
+        <div class="job info-card">
+          
+          <img class="logo" src={job.employer.logo} alt={job.employer.logo}>
+
           <div id="title">
-            <h4 class="job-employer">{job.employer.name}</h4>
+            <h4 class="job-employer">
+              {job.employer.name}
+            </h4>
 
             <ul class="job-positions"> 
               {job.job_title.map((key) => (
@@ -33,48 +58,66 @@ import json from "../../assests/BillWallbaum.json"
           </div>
         </div>
       ))}
-    </div>
-
-    <div id="education" class="card">
-      <h3>Education</h3>
+      
     </div>
     
-    <div id="skills" class="card">
+    // Education
+    <div slot="left-col" id="schools-label" class="card">
+      <h3>Education</h3>
+    </div>
+
+    <div slot="right-col" id="schools-info" class="card">
+      {education.map((school, index) => (
+
+        <div id={school.institution} class="school card info-card">
+          
+          <img class="logo" src="" alt="">
+          <div>
+            <h4 class="institution-name">{school.institution}</h4>
+            <p>{school.area} · {school.studyType}</p>
+          </div>
+        </div>
+
+      ))}
+    </div>
+    
+    // Skills
+    <div slot="left-col" id="skills-label" class="card">
       <h3>Skills</h3>
     </div>
-    <slot/>
-</section>
+
+    <div slot="right-col" id="skills-info" class="card">
+      <ul class="skills info-card">
+      {skills.map((skill) => (
+        <li id={skill} class="skill">
+          {skill}
+        </li>
+      ))}
+            </ul>
+  </div>
+</TwoPanelLeft>
 
 <style lang="scss">
-  .resume {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: space-around;
-    justify-content: space-around;
-    gap: var(--global-s2);
-    background-color: var(--byzantium);
-    padding: var(--global-s2) var(--global-s4) var(--global-s4);
-    color: var(--primary-text-color);
+  .info-card {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "image info";
+    align-items: center;
+    background-color: var(--primary-text-color);
+    color: var(--white-5);
 
-    & h2 {
-      color: var(--primary-text-color);
-      width:100%;
-      padding:0;
-      font-size: 3rem;
-      text-transform: uppercase;
+    & div {
+      grid-area: info;
     }
   }
   #work-history {
     display: grid;
     gap: var(--global-s1);
   }
+  #jobs-info {
+    gap:var(--global-s1);
+  }
   .job {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-areas: "image info";
-    background-color: var(--black-4);
-    align-items: center;
     gap: var(--global-s1);
     padding: var(--global-s1);
     border-radius: var(--global-radius);
@@ -96,13 +139,23 @@ import json from "../../assests/BillWallbaum.json"
   .job-position {
     display: flex;
   }
-  .job-logo {
+  .logo {
     grid-area: image;
-    max-width:75px;
+    padding: var(--global-s1);
     filter: drop-shadow(var(--global-shadow));
     fill: var(--primary-color);
   }
+  #schools {
+    display: grid;
+    gap:  var(--global-s1);
+  }
   .info {
     display:none
+
+
+  }
+
+  #jobs-info, #schools-info, #skills-info {
+    display:none;
   }
 </style>

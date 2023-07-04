@@ -3,6 +3,11 @@ import PostLinks from "@components/PostLinks.astro";
 import LayoutBasic from "@layouts/Layout-Basic.astro";
 import Full from "@layouts/sections/Full.astro";
 import Resume from "@layouts/sections/Resume.astro";
+
+const pannelClasses = ["c-46", "bg-tertiary", "container"];
+const colOneClasses = [];
+const colTwoClasses = [];
+const title = "Bill's CV";
 ---
 
 <LayoutBasic>
@@ -16,7 +21,7 @@ import Resume from "@layouts/sections/Resume.astro";
   <PostLinks />
 
   <!-- Reume  -->
-  <Resume className="resume" />
+  <Resume sectId="resume" pannelClass={pannelClasses} colOneClass={colOneClasses} colTwoClass={colTwoClasses} title={title}/>
 </LayoutBasic>
 
 <style lang="scss">  
