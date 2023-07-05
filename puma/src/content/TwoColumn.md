@@ -13,7 +13,7 @@ It’s built using the “PageSection” module and two “Column” module inst
 
 
 The final outcome is
-`
+```
 <section id=”sectId” class=”sectionClass”>
 <div id=”sectId-header” class=”headerClass”>
       slot name="intro"
@@ -25,9 +25,8 @@ The final outcome is
       slot name="right-col"
 </div>
 </div>
-`
-`<section id=”sectId” class=”sectionClass”><div id=”sectId-header” class=”headerClass”>slot name="intro"</div><div id=”colOneId” class=”colOneClass”>slot name="left-col"</div><div id=”colTwoId” class=”colTwoClass”>slot name="right-col"</div></div>
-`
+```
+
 
 ## CSS
 The CSS is designed to house multiple formats wi an intelligent naming convention to support various layouts. 
