@@ -15,15 +15,15 @@ It’s built using the “PageSection” module and two “Column” module inst
 The final outcome is
 ```
 <section id=”sectId” class=”sectionClass”>
-<div id=”sectId-header” class=”headerClass”>
-      slot name="intro"
-</div>
-<div id=”colOneId” class=”colOneClass”>
-      slot name="left-col"
-</div>
-<div id=”colTwoId” class=”colTwoClass”>
-      slot name="right-col"
-</div>
+    <div id=”sectId-header” class=”headerClass”>
+        <slot name="intro"/>
+    </div>
+    <div id=”colOneId” class=”colOneClass”>
+         <slot name="left-col"/>
+    </div>
+    <div id=”colTwoId” class=”colTwoClass”>
+         <slot name="right-col"/>
+    </div>
 </div>
 ```
 
@@ -79,6 +79,7 @@ The left column comes sized to split the row it’s on into 4 parts, always leav
 Columns are visible on desktop and tablet modes, then stacking for phones.
 
 | class | `.col-1` | `.col-2` |
+| ------ | ------ | ------ |
 | `.c-13` | 1fr | 3fr |
 | `.c-22` | 2fr | 2fr |
 | `.c-31` | 3fr | 1fr |
