@@ -1,5 +1,6 @@
 ---
 import TwoPanelLeft from "@layouts/sections/TwoPanel.astro";
+import toggleVisibility from "@assets/toggleVisibility.astro"
 const { sectId="resume-container", pannelClass = [], colOneClass = [], colTwoClass = [], title = "Section Title"} = Astro.props
 const sectionClasses = [...pannelClass];
 const colOneClasses = [...colOneClass];
@@ -11,21 +12,14 @@ const { about, education, work_history, skills, certifications } = json;
 
 ---
 
-<script>
-  function toggleVisibility(elementId) {
-    const element = document.getElementById(elementId);
-    element.style.display = element.style.display === 'none' ? 'grid' : 'none';
-  }
-</script>
-
 <TwoPanelLeft sectId={sectId} sectionClass={sectionClasses} colOneClass = {colOneClasses} colTwoClass={colTwoClasses}>
-    <div class = "section-header" slot="intro">
+    <div class="section-header" slot="intro">
       <h2>{title}</h2>
     <slot/>
     </div>
     
     <!-- Work History -->
-    <div id="jobs-label" slot="left-col"  class="card">
+    <div slot="left-col" id="jobs-label" class="card" onclick="toggleVisibility('jobs-info', ['skills-info', 'schools-info'])">
       <h3>Work History</h3>
     </div>
 
@@ -62,7 +56,7 @@ const { about, education, work_history, skills, certifications } = json;
     </div>
     
     // Education
-    <div slot="left-col" id="schools-label" class="card">
+    <div slot="left-col" id="schools-label" class="card" onclick="toggleVisibility('schools-info', ['jobs-info', 'skills-info'])">
       <h3>Education</h3>
     </div>
 
@@ -82,7 +76,7 @@ const { about, education, work_history, skills, certifications } = json;
     </div>
     
     // Skills
-    <div slot="left-col" id="skills-label" class="card">
+    <div slot="left-col" id="skills-label" class="card" onclick="toggleVisibility('skills-info', ['jobs-info', 'schools-info'])">
       <h3>Skills</h3>
     </div>
 
@@ -97,7 +91,11 @@ const { about, education, work_history, skills, certifications } = json;
   </div>
 </TwoPanelLeft>
 
+
 <style lang="scss">
+  .section-header{
+    
+  }
   .info-card {
     display: grid;
     grid-template-columns: 1fr 5fr;

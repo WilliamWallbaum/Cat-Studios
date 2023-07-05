@@ -1,0 +1,14 @@
+---
+const toggleVisibility = (targetId, hideIds) => {
+  const targetElement = document.getElementById(targetId);
+  if (targetElement) {
+    targetElement.style.display = "grid";
+    hideIds.forEach((id) => {
+      const hideElement = document.getElementById(id);
+      if (hideElement) {
+        hideElement.style.display = "none";
+      }
+    });
+  }
+};
+---
