@@ -1,6 +1,6 @@
 ---
 import TwoPanelLeft from "@layouts/sections/TwoPanel.astro";
-import toggleVisibility from "@assets/toggleVisibility.astro"
+import { toggleVisibility } from "../../scripts/toggleVisibility.js";
 const { sectId="resume-container", pannelClass = [], colOneClass = [], colTwoClass = [], title = "Section Title"} = Astro.props
 const sectionClasses = [...pannelClass];
 const colOneClasses = [...colOneClass];
@@ -10,20 +10,22 @@ const colTwoClasses = [...colTwoClass];
 import json from "../../assests/BillWallbaum.json";
 const { about, education, work_history, skills, certifications } = json;
 
+
 ---
 
 <TwoPanelLeft sectId={sectId} sectionClass={sectionClasses} colOneClass = {colOneClasses} colTwoClass={colTwoClasses}>
+
     <div class="section-header" slot="intro">
       <h2>{title}</h2>
     <slot/>
     </div>
     
     <!-- Work History -->
-    <div slot="left-col" id="jobs-label" class="card" onclick="toggleVisibility('jobs-info', ['skills-info', 'schools-info'])">
+    <div slot="left-col" id="jobs-label" class="card">
       <h3>Work History</h3>
     </div>
 
-    <div slot="right-col" id="jobs-info" class="card" style="display: grid;">
+    <div slot="right-col" id="jobs-info" class="card">
       {work_history.map((job, index) => (
         <div class="job info-card">
           
@@ -56,7 +58,7 @@ const { about, education, work_history, skills, certifications } = json;
     </div>
     
     // Education
-    <div slot="left-col" id="schools-label" class="card" onclick="toggleVisibility('schools-info', ['jobs-info', 'skills-info'])">
+    <div slot="left-col" id="schools-label" class="card">
       <h3>Education</h3>
     </div>
 
@@ -76,7 +78,7 @@ const { about, education, work_history, skills, certifications } = json;
     </div>
     
     // Skills
-    <div slot="left-col" id="skills-label" class="card" onclick="toggleVisibility('skills-info', ['jobs-info', 'schools-info'])">
+    <div slot="left-col" id="skills-label" class="card">
       <h3>Skills</h3>
     </div>
 
@@ -90,12 +92,14 @@ const { about, education, work_history, skills, certifications } = json;
             </ul>
   </div>
 </TwoPanelLeft>
+<script>
+  import { toggleVisibility } from "src/scripts/toggleVisibility";
+  toggleVisibility();
+</script>
 
 
 <style lang="scss">
-  .section-header{
-    
-  }
+  .section-header{}
   .info-card {
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -103,6 +107,8 @@ const { about, education, work_history, skills, certifications } = json;
     align-items: center;
     background-color: var(--primary-text-color);
     color: var(--white-5);
+    opacity: 1; /* Set initial opacity to 0 */
+    transition: opacity 0.5s; /* Add transition property for opacity */
 
     & div {
       grid-area: info;
@@ -155,5 +161,6 @@ const { about, education, work_history, skills, certifications } = json;
 
   #jobs-info, #schools-info, #skills-info {
     display:none;
+    opacity: 0; /* Set initial opacity to 0 */
   }
 </style>
