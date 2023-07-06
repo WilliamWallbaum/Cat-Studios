@@ -21,7 +21,7 @@
     "@nanostores/react": "^0.7.1",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "astro": "^2.7.4",
+    "astro": "^2.8.0",
     "nanostores": "^0.9.3",
     "pnpm": "^8.6.6",
     "react": "^18.2.0",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "eslint": "^8.44.0",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.25",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.10.0"
   }
