@@ -16,6 +16,7 @@
   ],
   "education": [
     {
+      "id": "ctu",
       "institution": "Colorado Technical University",
       "area": "Bachelor of Science in Graphic Design",
       "studyType": "Bachelor's degree",
@@ -23,11 +24,12 @@
       "endDate": "2011",
       "location": "Colorado Springs, Colorado, United States",
       "logo": {
-          "name": "CTU",
-          "alt": ""
-        }
+        "name": "CTU",
+        "alt": ""
+      }
     },
     {
+      "id": "ppsc",
       "institution": "Pikes Peak State College",
       "area": "Associate of Applied Science in Graphic Design",
       "studyType": "Associate degree",
@@ -35,13 +37,14 @@
       "endDate": "2007",
       "location": "Colorado Springs, Colorado, United States",
       "logo": {
-          "name": "PPSC",
-          "alt": ""
-        }
+        "name": "PPSC",
+        "alt": ""
+      }
     }
   ],
   "work_history": [
     {
+      "id": "aah",
       "job_title": ["Graphic Designer", "Front-End Developer"],
       "employer": {
         "name": "Advanced Affordable Hearing",
@@ -64,11 +67,12 @@
       ]
     },
     {
+      "id": "cid",
       "job_title": ["Founder", "Designer"],
       "employer": {
         "name": "Cat's Imaging And Design",
         "logo": {
-          "name":"Cat",
+          "name": "Cat",
           "alt": "Cat's Imaging & Design Logo"
         }
       },
@@ -86,12 +90,13 @@
       ]
     },
     {
+      "id": "ce",
       "job_title": ["Senior Graphic Designer"],
       "employer": {
         "name": "Copy Experts",
         "logo": {
-          "name":"CopyExperts",
-          "alt":"The Copy Experts Logo"
+          "name": "CopyExperts",
+          "alt": "The Copy Experts Logo"
         }
       },
       "employment_type": "Full-time",
@@ -109,26 +114,33 @@
     }
   ],
   "skills": [
-    "Graphic Design",
-    "Drupal",
-    "Packaging Design",
-    "Microsoft Excel",
-    "Visual Basic for Applications (VBA)",
-    "WordPress",
-    "Web Design",
-    "Brochures",
-    "Layout",
-    "Magazines",
-    "Promotions",
-    "Production",
-    "Retouching",
-    "Programming",
-    "Shopify",
-    "UX/UI Design",
-    "Social Media Management",
-    "Video and Motion Graphics",
-    "Vector Design",
-    "Analytics"
+    {
+      "category": {
+        "design": [
+          "Packaging Design",
+          "Microsoft Excel",
+          "Brochures",
+          "Layout",
+          "Magazines",
+          "Promotions",
+          "Production",
+          "Retouching",
+          "Social Media Management",
+          "Video and Motion Graphics",
+          "Vector Design",
+          "Analytics"
+        ],
+        "development": [
+          "Drupal",
+          "Visual Basic for Applications (VBA)",
+          "WordPress",
+          "Web Design",
+          "Shopify",
+          "UX/UI Design",
+          "Programming"
+        ]
+      }
+    }
   ],
   "certifications": [
     {
