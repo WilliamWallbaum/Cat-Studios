@@ -1,6 +1,6 @@
 ---
 import TwoPanelLeft from "@layouts/sections/TwoPanel.astro";
-import { toggleVisibility } from "../../scripts/toggleVisibility.js";
+import { Icon } from 'astro-icon';
 const { sectId="resume-container", pannelClass = [], colOneClass = [], colTwoClass = [], title = "Section Title"} = Astro.props
 const sectionClasses = [...pannelClass];
 const colOneClasses = [...colOneClass];
@@ -25,13 +25,13 @@ const { about, education, work_history, skills, certifications } = json;
       <h3>Work History</h3>
     </div>
 
-    <div slot="right-col" id="jobs-info" class="card">
+    <div slot="right-col" id="jobs-info" class="card fade">
       {work_history.map((job, index) => (
         <div class="job info-card">
           
-          <img class="logo" src={job.employer.logo} alt={job.employer.logo}>
+          <Icon class="logo" name={job.employer.logo.name} alt={job.employer.logo.alt}/>
 
-          <div id="title">
+          <div id="job-title">
             <h4 class="job-employer">
               {job.employer.name}
             </h4>
@@ -45,7 +45,7 @@ const { about, education, work_history, skills, certifications } = json;
             </ul>
           </div>
 
-          <div class="info">
+          <div class="job-info">
             <p>Employment Type: {job.employment_type}</p>
             <p>{job.start_date}</p>
             <p>End Date: {job.end_date}</p>
@@ -60,14 +60,19 @@ const { about, education, work_history, skills, certifications } = json;
     // Education
     <div slot="left-col" id="schools-label" class="card">
       <h3>Education</h3>
+      {education.map((school)=> (
+          <a class="icon-link">
+            <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
+          </a>
+        ))}
     </div>
 
-    <div slot="right-col" id="schools-info" class="card">
+    <div slot="right-col" id="schools-info" class="card fade">
       {education.map((school, index) => (
 
         <div id={school.institution} class="school card info-card">
           
-          <img class="logo" src="" alt="">
+          <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
           <div>
             <h4 class="institution-name">{school.institution}</h4>
             <p>{school.area} · {school.studyType}</p>
@@ -82,8 +87,8 @@ const { about, education, work_history, skills, certifications } = json;
       <h3>Skills</h3>
     </div>
 
-    <div slot="right-col" id="skills-info" class="card">
-      <ul class="skills info-card">
+    <div slot="right-col" id="skills-info" class="card fade">
+      <ul class="skills">
       {skills.map((skill) => (
         <li id={skill} class="skill">
           {skill}
@@ -92,6 +97,7 @@ const { about, education, work_history, skills, certifications } = json;
             </ul>
   </div>
 </TwoPanelLeft>
+
 <script>
   import { toggleVisibility } from "src/scripts/toggleVisibility";
   toggleVisibility();
@@ -99,40 +105,54 @@ const { about, education, work_history, skills, certifications } = json;
 
 
 <style lang="scss">
-  .section-header{}
+  .show {
+    opacity: 1 !important; /* Set initial opacity to 0 */
+    display: grid !important;
+    transition: opacity 0.5s; /* Add transition property for opacity */
+    animation: fadeIn 0.5s; /* Add animation for fade-in effect */
+  }
+
   .info-card {
-    display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-areas: "image info";
     align-items: center;
     background-color: var(--primary-text-color);
     color: var(--white-5);
-    opacity: 1; /* Set initial opacity to 0 */
-    transition: opacity 0.5s; /* Add transition property for opacity */
 
     & div {
       grid-area: info;
     }
   }
+
   #work-history {
     display: grid;
     gap: var(--global-s1);
   }
-  #jobs-info {
-    gap:var(--global-s1);
+
+  #jobs-label {
+    display: grid;
   }
+
+  #jobs-info {
+    gap: var(--global-s1);
+  }
+
   .job {
+    display: grid;
     gap: var(--global-s1);
     padding: var(--global-s1);
     border-radius: var(--global-radius);
   }
-  #title{    
+
+  #title {
     grid-area: info;
   }
+
   .job-employer {
     margin: 0;
     padding: 0;
   }
+
   .job-positions {
     display: flex;
     flex-direction: row;
@@ -140,27 +160,37 @@ const { about, education, work_history, skills, certifications } = json;
     padding: 0;
     margin: 5px 0;
   }
+
   .job-position {
     display: flex;
   }
-  .logo {
+
+   [astro-icon] {
     grid-area: image;
-    padding: var(--global-s1);
     filter: drop-shadow(var(--global-shadow));
-    fill: var(--primary-color);
-  }
-  #schools {
-    display: grid;
-    gap:  var(--global-s1);
-  }
-  .info {
-    display:none
-
-
+    fill:  var(--white-5); /* Specify the fill color here */
   }
 
-  #jobs-info, #schools-info, #skills-info {
-    display:none;
+  #schools-info {
+    gap: var(--global-s1);
+  }
+
+  .job-info {
+    display: none;
+  }
+
+  .fade {
     opacity: 0; /* Set initial opacity to 0 */
+    display: none;
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
 </style>
