@@ -21,7 +21,11 @@
       "studyType": "Bachelor's degree",
       "startDate": "2008",
       "endDate": "2011",
-      "location": "Colorado Springs, Colorado, United States"
+      "location": "Colorado Springs, Colorado, United States",
+      "logo": {
+          "name": "CTU",
+          "alt": ""
+        }
     },
     {
       "institution": "Pikes Peak State College",
@@ -29,7 +33,11 @@
       "studyType": "Associate degree",
       "startDate": "2005",
       "endDate": "2007",
-      "location": "Colorado Springs, Colorado, United States"
+      "location": "Colorado Springs, Colorado, United States",
+      "logo": {
+          "name": "PPSC",
+          "alt": ""
+        }
     }
   ],
   "work_history": [
@@ -37,7 +45,10 @@
       "job_title": ["Graphic Designer", "Front-End Developer"],
       "employer": {
         "name": "Advanced Affordable Hearing",
-        "logo": "../Cat-Logo.svg"
+        "logo": {
+          "name": "AAH",
+          "alt": ""
+        }
       },
       "employment_type": "Full-time",
       "start_date": "May 2022",
@@ -56,7 +67,10 @@
       "job_title": ["Founder", "Designer"],
       "employer": {
         "name": "Cat's Imaging And Design",
-        "logo": "../Cat-Logo.svg"
+        "logo": {
+          "name":"Cat",
+          "alt": "Cat's Imaging & Design Logo"
+        }
       },
       "employment_type": "Freelance",
       "start_date": "Jan 2005",
@@ -75,7 +89,10 @@
       "job_title": ["Senior Graphic Designer"],
       "employer": {
         "name": "Copy Experts",
-        "logo": "../Cat-Logo.svg"
+        "logo": {
+          "name":"CopyExperts",
+          "alt":"The Copy Experts Logo"
+        }
       },
       "employment_type": "Full-time",
       "start_date": "Feb 2015",
