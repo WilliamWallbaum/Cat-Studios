@@ -9,14 +9,29 @@ export const toggleVisibility = () => {
   const skillsInfo = document.getElementById("skills-info");
 
   // Reset display properties for all elements
-    jobsInfo.classList.toggle("show");
+  jobsInfo.classList.add("show");
+  schoolsInfo.classList.remove("show");
+  skillsInfo.classList.remove("show");
 
   // Add click event listeners to labels
   jobsLabel.addEventListener("click", () => {
+    // Toggle the 'show' class to trigger the fade transition
+    jobsInfo.classList.add("show");
+    schoolsInfo.classList.remove("show");
+    skillsInfo.classList.remove("show");
+  });
 
-    // Trigger fade transition by adding the 'show' class
-    jobsInfo.classList.toggle("show");
-    schoolsInfo.classList.toggle("show");
-    skillsInfo.classList.toggle("show");
+  schoolsLabel.addEventListener("click", () => {
+    jobsInfo.classList.remove("show");
+    // Toggle the 'show' class to trigger the fade transition
+    schoolsInfo.classList.add("show");
+    skillsInfo.classList.remove("show");
+  });
+
+  skillsLabel.addEventListener("click", () => {
+    jobsInfo.classList.remove("show");
+    schoolsInfo.classList.remove("show");
+    // Toggle the 'show' class to trigger the fade transition
+    skillsInfo.classList.add("show");
   });
 };
