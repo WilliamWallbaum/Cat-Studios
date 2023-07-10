@@ -115,31 +115,43 @@
   ],
   "skills": [
     {
-      "category": {
-        "design": [
-          "Packaging Design",
-          "Microsoft Excel",
-          "Brochures",
-          "Layout",
-          "Magazines",
-          "Promotions",
-          "Production",
-          "Retouching",
-          "Social Media Management",
-          "Video and Motion Graphics",
-          "Vector Design",
-          "Analytics"
-        ],
-        "development": [
-          "Drupal",
-          "Visual Basic for Applications (VBA)",
-          "WordPress",
-          "Web Design",
-          "Shopify",
-          "UX/UI Design",
-          "Programming"
-        ]
-      }
+      "category":"design",
+      "id": "graphic",
+      "logo": {
+        "name": "brush",
+        "alt": ""
+      },
+      "skills": [
+        "Packaging Design",
+        "Microsoft Excel",
+        "Brochures",
+        "Layout",
+        "Magazines",
+        "Promotions",
+        "Production",
+        "Retouching",
+        "Social Media Management",
+        "Video and Motion Graphics",
+        "Vector Design",
+        "Analytics"
+      ]
+    },
+    {
+      "category":"development",
+      "id": "dev",
+      "logo": {
+        "name": "code",
+        "alt": ""
+      },
+      "skills": [
+        "Drupal",
+        "Visual Basic for Applications (VBA)",
+        "WordPress",
+        "Web Design",
+        "Shopify",
+        "UX/UI Design",
+        "Programming"
+      ]
     }
   ],
   "certifications": [
