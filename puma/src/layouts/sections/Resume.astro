@@ -18,76 +18,101 @@ const { about, education, work_history, skills, certifications } = json;
     <slot/>
     </div>
     
-    <!-- Work History -->
-    <div slot="left-col" id="jobs-label" class="card" data-set="work-history">
+    <!--
+      Work History
+      Navigation
+    -->
+    <div slot="left-col" id="jobs-label" class="card">
+      
+      <!-- Invisible Button -->
+      <span class="clickable" data-set="work-history"></span>
+      
+      <!-- Title -->
       <h3>Work History</h3>
-        <div class="icon-links">
-          {work_history.map((job)=> (
-            <span id={`${job.id}-label-link`} class="icon-link" title={job.employer.name} data-set={job.id}>
-              <Icon class="logo" name={job.employer.logo.name} alt={job.employer.logo.alt}/>
-            </span>
-          ))}
-        </div>
+    
+      <!-- Icon Row -->
+      <div class="icon-links">
+        {work_history.map((job)=> (
+          <span id={`${job.id}-label-link`} class="icon-link" title={job.employer.name} data-set={job.id}>
+            <Icon class="logo" name={job.employer.logo.name} alt={job.employer.logo.alt}/>
+          </span>
+        ))}
+      </div>
     </div>
 
-    <div slot="right-col" id="jobs-info" class="card fade" data-set="work-history">
+    <!-- Information -->
+    <div slot="right-col" id="jobs-info" class="card show" data-set="work-history">
       {work_history.map((job, index) => (
-        <div id={`${job.id}-title`} class="job title-card fade" data-set={job.id}>
-            <span id={`${job.id}-title-link`} class="icon-link" title={job.employer.name} data-set={job.id}>
+        <div id={`${job.id}`}  data-set={job.id}>
+          <div id={`${job.id}-title`} class="job title-card icon-link" data-set={job.id}>
+
+            <!-- image -->
+            <span id={`${job.id}-title-link`} title={job.employer.name} data-set={job.id}>
               <Icon class="logo" name={job.employer.logo.name} alt={job.employer.logo.alt}/>
             </span>
 
-          <div id="job-title" class="job">
-            <h4 class="job-employer">
-              {job.employer.name}
-            </h4>
+            <!-- info -->
+            <div id="job-title" class="job" data-set={job.id}>
+              <h4 class="job-employer">
+                {job.employer.name}
+              </h4>
 
-            <ul class="job-positions"> 
-              {job.job_title.map((key) => (
-                <li class="job-position">
-                  {key}
+              <ul class="job-positions"> 
+                {job.job_title.map((key) => (
+                  <li class="job-position">
+                    {key}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div id={`${job.id}-info`} class="job info-card" data-set={job.id}>
+            <p>{job.employment_type} | {job.start_date} - {job.end_date} | {job.duration}</p>
+            <p><small>{job.location}</small></p>
+
+            <ul class="job-duties"> 
+              {job.responsibilities.map((duty) => (
+                <li class="job-responsibilities">
+                  {duty}
                 </li>
               ))}
             </ul>
           </div>
         </div>
-
-        <div id={`${job.id}-info`} class="job info-card fade" data-set={job.id}>
-          <p>{job.employment_type} | {job.start_date} - {job.end_date} | {job.duration}</p>
-          <p><small>{job.location}</small></p>
-
-          <ul class="job-duties"> 
-            {job.responsibilities.map((duty) => (
-              <li class="job-responsibilities">
-                {duty}
-              </li>
-            ))}
-          </ul>
-        </div>
       ))}      
     </div>
     
-    // Education
-    <div slot="left-col" id="schools-label" class="card" data-set="education">
+    <!--
+      Education
+      Navigation
+    -->
+    <div slot="left-col" id="schools-label" class="card">
+
+      <span class="toggleCards" data-set="education"></span>
+
       <h3>Education</h3>
-        <div class="icon-links">
-          {education.map((school)=> (
-            <span id={`${school.id}-link`} class="icon-link" title={school.institution}>
-              <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
-            </span>
-          ))}
-        </div>
+
+      <!-- icon row -->
+      <div class="icon-links">
+        {education.map((school)=> (
+          <span id={`${school.id}-link`} class="icon-link" title={school.institution}>
+            <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
+          </span>
+        ))}
+      </div>
     </div>
 
-    <div slot="right-col" id="schools-info" class="card fade" data-set="education">
+    <!-- Information -->
+    <div slot="right-col" id="schools-info" class="card" data-set="education">
       {education.map((school, index) => (
 
-        <div id={`${school.id}-card`} class="school card title-card fade">
+        <div id={`${school.id}-card`} class="school card title-card">
           <span id={`${school.id}-link`} class="icon-link" title={school.institution}>
             <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
           </span>
           <div id={`${school.id}-info`}>
-            <h4 class="institution-name">{school.institution}</h4>
+            <h4 id={`${school.id}-title`}>{school.institution}</h4>
             <p>{school.area} · {school.studyType}</p>
           </div>
         </div>
@@ -95,32 +120,78 @@ const { about, education, work_history, skills, certifications } = json;
       ))}
     </div>
     
-    // Skills
-    <div slot="left-col" id="skills-label" class="card" data-set="skills">
+    <!--
+      Skills
+      Navigation
+    -->
+    <div slot="left-col" id="skills-label" class="card">
+      <span class="toggleCards" data-set="skills"></span>
       <h3>Skills</h3>
+
+      <!-- icon row -->
+      <div class="icon-links">
+        {skills.map((skill)=> (
+          <span id={`${skill.id}-link`} class="icon-link" title={skill.category}>
+            <Icon class="logo" name={skill.logo.name} alt={skill.logo.alt}/>
+          </span>
+        ))}
+      </div>
     </div>
 
-    <div slot="right-col" id="skills-info" class="card fade" data-set="skills">
-      <ul class="skills">
-      {skills.map((category) => (
-        <li id={category} class="skill">
-          {category}
-        </li>
-      ))}
-            </ul>
+    <!-- Information -->
+    <div slot="right-col" id="skills-info" class="card" data-set="skills">
+        {skills.map((skill)=> ({skill}))}
             
   </div>
 </TwoPanelLeft>
 
 <script>
-  import { toggleVisibility } from "src/scripts/toggleVisibility";
-  toggleVisibility();
+  import { toggleDataSet } from "src/scripts/toggleVisibility";
+
+  // Event listener for data set click
+  function dataSetClick(event) {
+    const dataSet = event.target.dataset.set;
+    toggleDataSet(dataSet);
+  }
+
+  // Add click event listeners to data sets
+  const dataSets = document.querySelectorAll('[data-set]');
+  dataSets.forEach((element) => {
+    element.addEventListener('click', dataSetClick);
+  });
 </script>
 
 
 <style lang="scss">
   [id$="-label"] {
+    position: relative;
+    height: auto;
+    width: auto;
     padding: var(--global-s1);
+    z-index: 0;
+    h3{
+      margin: 0 0 calc(var(--global-s1) * .7);
+    }
+  }
+
+  [id$="-info"] {
+    display: grid;
+    gap: var(--global-s1);
+    opacity: 0; /* Set initial opacity to 0 */
+    display: none;
+  }
+
+  [id$="-card"] {
+  }
+
+  .clickable {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   .show {
     opacity: 1 !important; /* Set initial opacity to 0 */
@@ -130,22 +201,27 @@ const { about, education, work_history, skills, certifications } = json;
   }
 
   .title-card {
+    display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-areas: "image info";
+      gap: var(--global-s1);
     align-items: center;
     background-color: var(--primary-text-color);
     color: var(--white-5);
 
-    & div {
+    [id$="-info"] {
       grid-area: info;
     }
   }
+
   .icon-links {
     display: grid;
+    position: relative;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-around;
     align-items: center;
     gap: calc(var(--global-s1)*.5);
+    z-index: 3;
   }
 
   #work-history {
@@ -153,13 +229,8 @@ const { about, education, work_history, skills, certifications } = json;
     gap: var(--global-s1);
   }
 
-  #jobs-info {
-    gap: var(--global-s1);
-  }
-
   .job {
     display: grid;
-    gap: var(--global-s1);
     padding: var(--global-s1);
     border-radius: var(--global-radius);
   }
@@ -191,22 +262,20 @@ const { about, education, work_history, skills, certifications } = json;
     fill:  var(--white-5); /* Specify the fill color here */
   }
 
-  #schools-info {
-    gap: var(--global-s1);
-  }
-
   .info-card {
     display: none;
     gap: 0;
+    background-color: var(--black);
+    color: var(--white-5);
+    margin-top: calc(var(--global-s1) * -1);
     p {
       margin-block-start: 0;
       margin-block-end: 0;
     }
-  }
-
-  .fade {
-    opacity: 0; /* Set initial opacity to 0 */
-    display: none;
+    ul {
+      display: grid;
+      gap: var(--global-s1);
+    }
   }
 
   @keyframes fadeIn {
