@@ -25,7 +25,7 @@ const { about, education, work_history, skills, certifications } = json;
     <div slot="left-col" id="jobs-label" class="card">
       
       <!-- Invisible Button -->
-      <span class="clickable" data-set="work-history"></span>
+      <span class="toggleCards" data-set="work-history"></span>
       
       <!-- Title -->
       <h3>Work History</h3>
@@ -148,17 +148,11 @@ const { about, education, work_history, skills, certifications } = json;
 <script>
   import { toggleDataSet } from "src/scripts/toggleVisibility";
 
-  // Event listener for data set click
-  function dataSetClick(event) {
-    const dataSet = event.target.dataset.set;
-    toggleDataSet(dataSet);
+  // Function to handle click event and toggle data sets
+  function handleClick(event) {
+    const dataset = event.target.getAttribute("data-set");
+    toggleDataSet(dataset);
   }
-
-  // Add click event listeners to data sets
-  const dataSets = document.querySelectorAll('[data-set]');
-  dataSets.forEach((element) => {
-    element.addEventListener('click', dataSetClick);
-  });
 </script>
 
 
