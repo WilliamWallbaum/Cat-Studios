@@ -12,9 +12,9 @@ const header = sectId + "-header";
 
 <PageSection sectId={sectId} sectionClasses={sectionClasses}>
   
-    <div id={header} class={headerClass}>
+    <header id={header} class={headerClass}>
       <slot name="intro"/>
-    </div>
+    </header>
     <Column id={colOneId} colClass={colOneClasses}>
       <slot name="left-col"/>
     </Column>
