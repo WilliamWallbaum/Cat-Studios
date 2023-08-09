@@ -1,5 +1,6 @@
 ---
 import LayoutBasic from "@layouts/Layout-Basic.astro";
+import DynamicContentToggler from "@layouts/sections/DynamicContentToggler.astro";
 import Resume from "@layouts/sections/Resume.astro";
 
 const pannelClasses = ["c-13", "bg-byzantium"];
@@ -11,6 +12,9 @@ const title = "About";
 
 <LayoutBasic>
 
+  <DynamicContentToggler>
+    
+  </DynamicContentToggler>
   <!-- Reume  -->
   <Resume sectId="resume" pannelClass={pannelClasses} colOneClass={colOneClasses} colTwoClass={colTwoClasses} title={title}>
     <h3>this is slotted information</h3>

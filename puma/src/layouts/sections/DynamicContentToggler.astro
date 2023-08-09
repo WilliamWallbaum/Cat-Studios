@@ -67,7 +67,7 @@ const { about, education, work_history, skills, certifications } = json;
             {skills.map((skill)=> (
                 <Button
                 id={`${skill.id}-button`}
-                title={skill.id}
+                title={skill.institution}
                 dataContentId="skills"
                 dataSubContent={`${skill.id}-info`}
                 >
@@ -145,12 +145,13 @@ const { about, education, work_history, skills, certifications } = json;
         <h2 data-content-id="skills">Skills</h2>
         {skills.map((skill) => (
             <div id={`${skill.id}-title-card`} class="title-card">
-                <figure id={`${skill.id}-logo`} title={skill.id}>
+                <figure id={`${skill.id}-logo`} title={skill.institution}>
                     <Icon class="logo" name={skill.logo.name} alt={skill.logo.alt}/>
                 </figure>
 
                 <div id={`${skill.id}-info`}>
-                    <h4 id={`${skill.id}-title`}>{skill.id}</h4>
+                    <h4 id={`${skill.id}-title`}>{skill.institution}</h4>
+                    <p>{skill.area} · {skill.studyType}</p>
                 </div>
             </div>
         ))}
