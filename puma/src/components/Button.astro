@@ -1,0 +1,11 @@
+---
+
+const { dataContentId, dataSubContent, className = [], colTwoClass = [], title = "Section Title"} = Astro.props
+---
+
+<button
+data-content-id = { dataContentId }
+data-sub-content-id = { dataSubContent }
+class = { className }>
+<slot/>
+</button>
