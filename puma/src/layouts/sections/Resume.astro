@@ -2,7 +2,6 @@
 import Button from "@components/Button.astro";
 import TwoPanelLeft from "@layouts/sections/TwoPanel.astro";
 import { Icon } from 'astro-icon';
-import "@styles/components/dynmicToggler.scss";
 const { sectId="resume-container", pannelClass = [], colOneClass = [], colTwoClass = [], title = "Section Title"} = Astro.props
 const sectionClasses = ["c-13",...pannelClass];
 const colOneClasses = [...colOneClass];
@@ -21,7 +20,7 @@ const { about, education, work_history, skills, certifications } = json;
     <!-- Start Column 1 -->
     <!-- Button Container 1 -->
     <div class="button-container" slot="left-col">
-        <Button dataContentId="work-history">Work History</Button>
+        <Button dataContentId="work-history" className="transparent">Work History</Button>
         <div class="sub-button-jobs">
             {work_history.map((job)=> (
                 <Button
@@ -29,6 +28,7 @@ const { about, education, work_history, skills, certifications } = json;
                 title={job.employer.name}
                 dataContentId="work-history"
                 dataSubContent={`${job.id}-info`}
+                className="transparent"
                 >
                     <Icon
                     class="logo"
@@ -42,7 +42,7 @@ const { about, education, work_history, skills, certifications } = json;
     
     <!-- Button Container 2 -->
     <div class="button-container" slot="left-col">
-        <Button dataContentId="education">Education</Button>
+        <Button dataContentId="education" className="transparent">Education</Button>
         <div class="sub-button-2a">
             {education.map((school)=> (
                 <Button
@@ -50,6 +50,7 @@ const { about, education, work_history, skills, certifications } = json;
                 title={school.institution}
                 dataContentId="education"
                 dataSubContent={`${school.id}-info`}
+                className="transparent"
                 >
                     <Icon
                     class="logo"
@@ -63,7 +64,7 @@ const { about, education, work_history, skills, certifications } = json;
     
     <!-- Button Container 3 -->
     <div class="button-container" slot="left-col">
-        <Button dataContentId="skills">Skills</Button>
+        <Button dataContentId="skills" className="transparent">Skills</Button>
         <div class="sub-button-3a">
             {skills.map((skill)=> (
                 <Button
@@ -71,6 +72,7 @@ const { about, education, work_history, skills, certifications } = json;
                 title={skill.id}
                 dataContentId="skills"
                 dataSubContent={`${skill.id}-info`}
+                className="transparent"
                 >
                     <Icon
                     class="logo"
@@ -87,11 +89,24 @@ const { about, education, work_history, skills, certifications } = json;
     <!-- Start Work History-->
     <article id="work-history" class="content opacity-1" slot="right-col">
         <h2 data-content-id="work-history">Work History</h2> 
-        {work_history.map((job, index) => (
-            <div id={`${job.id}-title-card`} class="title-card">
+        {work_history.map((job) => (
+            <div id={`${job.id}-title-card`} class="title-card" data-content-id="work-history" data-job-id={job.id}>
                 
                 <figure id={`${job.id}-logo`} title={job.employer.name}>
-                    <Icon class="logo" name={job.employer.logo.name} alt={job.employer.logo.alt}/>
+                    
+                <Button
+                id={`${job.id}-button`}
+                title={job.employer.name}
+                dataContentId="work-history"
+                dataSubContent={`${job.id}-info`}
+                className="transparent"
+                >
+                    <Icon
+                    class="logo"
+                    name={job.employer.logo.name}
+                    alt={job.employer.logo.alt}
+                    />
+                </Button>
                 </figure>
                 
                 <div id="job-card" class="job" data-content-id="work-history" data-job-id={job.id}>
@@ -129,7 +144,7 @@ const { about, education, work_history, skills, certifications } = json;
         {education.map((school) => (
             <div id={`${school.id}-title-card`} class="title-card">
                 <figure id={`${school.id}-logo`} title={school.institution}>
-            <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
+                    <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
                 </figure>
 
                 <div id={`${school.id}-info`}>
@@ -171,68 +186,112 @@ const { about, education, work_history, skills, certifications } = json;
 </script>
 
 <style lang="scss">
-  div,
-  article {
-    display: grid;
-    grid-gap: var(--global-s1);
-  }
-  .sub-content:has(.opacity-1) {
-    height: unset;
-    transition: height 0.3s ease;
-  }
-  .sub-content:has(.opacity-1) {
-    height: unset;
-    transition: height 0.3s ease;
-  }
 
-  .button-container {
-    background-color: var(--black-7);
-  }
-  [class^="sub-button-"],
-  .sub-button {
-    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
-  }
+        
+    div,
+    article {
+        display: grid;
+        grid-gap: var(--global-s1);
+        h2 {
+            color: var(--white-7);
+        }
+    }
+    .section-header p {
+            margin: 0;
+    }
+    .button-container {
+        background-color: var(--black-6);
+        border-radius:var(--global-radius);
+        padding:calc(var(--global-s1)*.1);
+        button {
+            color: var(--white-5);
+            font-size: calc(var(--base-text)*1.7);
+        }
+    }
+    .logo {
+        fill: var(--white-5);
+        transition: transform 0.3s ease;
+    }
+    .logo:hover {
+        fill: var(--white-7);
+        transform: scale(1.1); /* Adjust the scale factor as needed */
+    }
+    
+    [class^="sub-button-"],
+    .sub-button {
+        grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+        button{
+            padding:var(--global-s1);
+            svg {
+                max-height: calc(var(--global-s1) * 6);
+            }
+        }
+    }
 
-  .opacity-0 {
-    display: none;
-    opacity: 0;
-  }
+    .opacity-0 {
+        display: none;
+        opacity: 0;
+    }
 
-  .opacity-1 {
-    display: grid;
-    opacity: 1;
-  }
+    .opacity-1 {
+        display: grid;
+        opacity: 1;
+    }
 
-  .title-card {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-areas: "image info";
-    gap: var(--global-s1);
-    align-items: center;
-    background-color: var(--primary-text-color);
-    color: var(--white-5);
-  }
+    .title-card {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-areas: "image info";
+        gap: var(--global-s1);
+        align-items: center;
+        background-color: var(--black-6);
+        border-radius: var(--global-radius);
+        color: var(--white-5);
+        h4 {
+            font-size: calc(var(--base-text)*2);
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var(--primary-text-color);
+        }
+        figure {
+            display: grid;
+            justify-items: center;
+            padding:var(--global-s1);
+            button{
+                hight:100%;
+                width:100%;
+            }
+            svg {
+                max-height: calc(var(--global-s1) * 8);
+            }
+        }
 
-  [id$="-info"] {
-    background-color: var(--black-7);
-    margin: calc(var(--global-s1) * -1) 0 0;
-    padding: var(--global-s1) var(--global-s2);
-  }
+    }
 
-  /* Mobile-friendly styles */
-  @media (max-width: 768px) {
+    .job {
+        grid-gap: calc(var(--global-s1)*.5);
+    }
+
+    [id$="-info"] {
+        background-color: var(--black-7);
+        margin: calc(var(--global-s1) * -1) 0 0;
+        padding: var(--global-s1) var(--global-s2);
+    }
+
+    /* Mobile-friendly styles */
+    @media (max-width: 768px) {
     section {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 
     [class^="col-"] {
-      padding: calc(var(--global-s1) * 0.5);
+        padding: calc(var(--global-s1) * 0.5);
     }
 
     .sub-button,
     [class^="sub-button-"] {
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      grid-gap: var(--global-s1);
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: var(--global-s1);
     }
-  }
+    }
 </style>

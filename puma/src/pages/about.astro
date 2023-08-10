@@ -1,6 +1,5 @@
 ---
 import LayoutBasic from "@layouts/Layout-Basic.astro";
-import DynamicContentToggler from "@layouts/sections/DynamicContentToggler.astro";
 import Resume from "@layouts/sections/Resume.astro";
 
 const pannelClasses = ["c-13", "bg-byzantium"];
@@ -12,11 +11,11 @@ const title = "About";
 
 <LayoutBasic>
 
-  <DynamicContentToggler pannelClass={pannelClasses} colOneClass={colOneClasses} colTwoClass={colTwoClasses} title={title}>
+  <Resume pannelClass={pannelClasses} colOneClass={colOneClasses} colTwoClass={colTwoClasses} title={title}>
     <h3>Cat Studios</h3>
     <p>CatStudios.Online is the personal website for Bill Wallbaum/Walown. It features all the tallents and projects from art work, graphic design, web development, and audio projects</p>
     <p>Below is the CV of Bill and all his official works. Click on a section to the left to see a brief overview, for more details click on the cards to expand more information.</p>
-  </DynamicContentToggler>
+  </Resume>
   <!-- Reume  -->
 </LayoutBasic>
 
