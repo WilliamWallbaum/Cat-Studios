@@ -1,12 +1,25 @@
 /* global.scss */
 :root {
   /* Sets global variables */
-  --primary-color: oklch(43% 0.15 125);
-  --secondary-color: oklch(43% 0.15 172.23);
-  --tertiary-color: oklch(57% 0.107 194.29);
-  --byzantium: oklch(37.4% 0.107 293.8);
-  --red: oklch(43% 0.15 35.8);
-  --yellow: oklch(94.8% 0.15 93);
+    @supports (color: color(display-p3 0 0 0)) {
+    // Define color variables using OKLCH values
+    --primary-color: oklch(43% 0.15 125);
+    --secondary-color: oklch(43% 0.15 172.23);
+    --tertiary-color: oklch(57% 0.107 194.29);
+    --byzantium: oklch(37.4% 0.107 293.8);
+    --red: oklch(43% 0.15 35.8);
+    --yellow: oklch(94.8% 0.15 93);
+  }
+
+  @supports not (color: color(display-p3 0 0 0)) {
+    // Define color variables using HSL values
+    --primary-color: hsl(75.42 100% 18%);
+    --secondary-color: hsl(167.56 100% 18%);
+    --tertiary-color: hsl(179.77 100% 27%);
+    --byzantium: hsl(257.19 39% 32%);
+    --red: hsl(14.96 100% 28%);
+    --yellow: hsl(45.88 100% 85%);
+  }
 
   --primary-font: 'Raleway', sans-serif;
   --code-font: 'IBM Plex Mono', monospace;
