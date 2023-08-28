@@ -1,0 +1,21 @@
+---
+const { dataContentId, dataSubContent, className} = Astro.props;
+---
+
+<button
+data-content-id = { dataContentId }
+data-sub-content-id = { dataSubContent }
+class = {className}>
+    <slot/>
+</button>
+<style>
+    button {        
+        background-color: var(--black-2);
+        border:none;
+        border-radius: var(--global-radius);
+        font-family: var(--primary-font);
+    }
+    .transparent {
+        background-color: transparent;
+    }
+</style>

@@ -1,277 +1,574 @@
 ---
+import Button from "@components/Button.astro";
 import TwoPanelLeft from "@layouts/sections/TwoPanel.astro";
 import { Icon } from 'astro-icon';
 const { sectId="resume-container", pannelClass = [], colOneClass = [], colTwoClass = [], title = "Section Title"} = Astro.props
-const sectionClasses = [...pannelClass];
+const sectionClasses = ["c-13",...pannelClass];
 const colOneClasses = [...colOneClass];
 const colTwoClasses = [...colTwoClass];
 
 // resume information
 import json from "../../assests/BillWallbaum.json";
 const { about, education, work_history, skills, certifications } = json;
+const skill = skills.skill;
 ---
 
 <TwoPanelLeft sectId={sectId} sectionClass={sectionClasses} colOneClass = {colOneClasses} colTwoClass={colTwoClasses}>
-
-    <div class="section-header" slot="intro">
-      <h2>{title}</h2>
-    <slot/>
+    <header class="section-header" slot="intro">
+        <h2>{title}</h2>
+        <slot/>
+        <h2>{about[0].name.first} {about[0].name.last}</h2>
+        <div id="about-copy">
+            {about[0].bio}
+        </div>
+        <div class="social-links"></div>
+    </header>
+    <!-- Start Column 1 -->
+    <!-- Button Container 1 -->
+    <div class="button-container" slot="left-col">
+        <Button dataContentId="work-history" className="transparent">Work History</Button>
+        <div class="sub-button-jobs">
+            {work_history.map((job)=> (
+                <Button
+                id={`${job.id}-button`}
+                title={job.employer.name}
+                dataContentId="work-history"
+                dataSubContent={`${job.id}-info`}
+                className="transparent"
+                >
+                    <Icon
+                    class="logo"
+                    name={job.employer.logo.name}
+                    alt={job.employer.logo.alt}
+                    />
+                </Button>
+            ))}
+        </div>
     </div>
     
-    <!--
-      Work History
-      Navigation
-    -->
-    <div slot="left-col" id="jobs-label" class="card">
-      
-      <!-- Invisible Button -->
-      <span class="toggleCards" data-set="work-history"></span>
-      
-      <!-- Title -->
-      <h3>Work History</h3>
-    
-      <!-- Icon Row -->
-      <div class="icon-links">
-        {work_history.map((job)=> (
-          <span id={`${job.id}-label-link`} class="icon-link" title={job.employer.name} data-set={job.id}>
-            <Icon class="logo" name={job.employer.logo.name} alt={job.employer.logo.alt}/>
-          </span>
-        ))}
-      </div>
+    <!-- Button Container 2 -->
+    <div class="button-container" slot="left-col">
+        <Button dataContentId="education" className="transparent">Education</Button>
+        <div class="sub-button-2a">
+            {education.map((school)=> (
+                <Button
+                id={`${school.id}-button`}
+                title={school.institution}
+                dataContentId="education"
+                dataSubContent={`${school.id}-info`}
+                className="transparent"
+                >
+                    <Icon
+                    class="logo"
+                    name={school.logo.name}
+                    alt={school.logo.alt}
+                    />
+                </Button>
+            ))}
+        </div>
     </div>
-
-    <!-- Information -->
-    <div slot="right-col" id="jobs-info" class="card show" data-set="work-history">
-      {work_history.map((job, index) => (
-        <div id={`${job.id}`}  data-set={job.id}>
-          <div id={`${job.id}-title`} class="job title-card icon-link" data-set={job.id}>
-
-            <!-- image -->
-            <span id={`${job.id}-title-link`} title={job.employer.name} data-set={job.id}>
-              <Icon class="logo" name={job.employer.logo.name} alt={job.employer.logo.alt}/>
-            </span>
-
-            <!-- info -->
-            <div id="job-title" class="job" data-set={job.id}>
-              <h4 class="job-employer">
-                {job.employer.name}
-              </h4>
-
-              <ul class="job-positions"> 
-                {job.job_title.map((key) => (
-                  <li class="job-position">
-                    {key}
-                  </li>
-                ))}
-              </ul>
+    
+    <!-- Button Container 3 -->
+    <div class="button-container" slot="left-col">
+        <Button dataContentId="skills" className="transparent">Skills</Button>
+        <div class="sub-button-3a">
+            {skills.map((skill)=> (
+                <Button
+                id={`${skill.id}-button`}
+                title={skill.id}
+                dataContentId="skills"
+                dataSubContent={`${skill.id}-info`}
+                className="transparent"
+                >
+                    <Icon
+                    class="logo"
+                    name={skill.logo.name}
+                    alt={skill.logo.alt}
+                    />
+                </Button>
+            ))}
+        </div>
+    </div>
+    <!-- End Column 1 -->
+  
+    <!-- Start Column 2 -->
+    <!-- Start Work History-->
+    <article id="work-history" class="content opacity-1" slot="right-col">
+        <h2 data-content-id="work-history">Work History</h2> 
+        {work_history.map((job) => (
+            <div id={`${job.id}-title-card`} class="title-card" data-content-id="work-history" data-job-id={job.id}>
+                
+                <figure id={`${job.id}-logo`} title={job.employer.name}>
+                    
+                <Button
+                id={`${job.id}-button`}
+                title={job.employer.name}
+                dataContentId="work-history"
+                dataSubContent={`${job.id}-info`}
+                className="transparent"
+                >
+                    <Icon
+                    class="logo"
+                    name={job.employer.logo.name}
+                    alt={job.employer.logo.alt}
+                    />
+                </Button>
+                </figure>
+                
+                <div id="job-card" class="job" data-content-id="work-history" data-job-id={job.id}>
+                    <h4 class="job-employer">
+                        {job.employer.name}
+                    </h4>
+                    <ul class="job-positions">
+                        {job.job_title.map((key) => (
+                            <li class="job-position">
+                                {key}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
-          </div>
 
-          <div id={`${job.id}-info`} class="job info-card" data-set={job.id}>
-            <p>{job.employment_type} | {job.start_date} - {job.end_date} | {job.duration}</p>
-            <p><small>{job.location}</small></p>
+            <div id={`${job.id}-info`} class="sub-content opacity-0">
+                <p>{job.employment_type} | {job.start_date} - {job.end_date} | {job.duration}</p>
+                <p><small>{job.location}</small></p>
+                <ul class="job-duties"> 
+                    {job.responsibilities.map((duty) => (
+                        <li class="job-responsibilities">
+                            {duty}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        ))}   
+    </article>
+    <!-- End Work History-->
 
-            <ul class="job-duties"> 
-              {job.responsibilities.map((duty) => (
-                <li class="job-responsibilities">
-                  {duty}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ))}      
-    </div>
-    
-    <!--
-      Education
-      Navigation
-    -->
-    <div slot="left-col" id="schools-label" class="card">
+    <!-- Start Education -->
+    <article id="education" class="content opacity-0" slot="right-col">
+        <h2 data-content-id="education">Education</h2>
+        {education.map((school) => (
+            <div id={`${school.id}-title-card`} class="title-card">
+                <figure id={`${school.id}-logo`} title={school.institution}>
+                    <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
+                </figure>
 
-      <span class="toggleCards" data-set="education"></span>
-
-      <h3>Education</h3>
-
-      <!-- icon row -->
-      <div class="icon-links">
-        {education.map((school)=> (
-          <span id={`${school.id}-link`} class="icon-link" title={school.institution}>
-            <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
-          </span>
+                <div id={`${school.id}`}>
+                    <h4 id={`${school.id}-title`}>{school.institution}</h4>
+                    <p>{school.area} · {school.studyType}</p>
+                </div>
+            </div>
         ))}
-      </div>
-    </div>
+    </article>
+    <!-- End Education-->
 
-    <!-- Information -->
-    <div slot="right-col" id="schools-info" class="card" data-set="education">
-      {education.map((school, index) => (
+    <!-- Start Skills-->
+    <article id="skills" class="content opacity-0" slot="right-col">
+        <h2 data-content-id="skills">Skills</h2>
+        {skills.map((set) => (
+            <div id={`${set.category}-title-card`} class="title-card">
+                <figure id={`${set.category}-logo`} title={set.category}>
+                    <Icon class="logo" name={set.logo.name} alt={set.logo.alt}/>
+                </figure>
+                
+                <h4 id={`${set.category}-title`}>{set.category}</h4>
 
-        <div id={`${school.id}-card`} class="school card title-card">
-          <span id={`${school.id}-link`} class="icon-link" title={school.institution}>
-            <Icon class="logo" name={school.logo.name} alt={school.logo.alt}/>
-          </span>
-          <div id={`${school.id}-info`}>
-            <h4 id={`${school.id}-title`}>{school.institution}</h4>
-            <p>{school.area} · {school.studyType}</p>
-          </div>
-        </div>
-
-      ))}
-    </div>
-    
-    <!--
-      Skills
-      Navigation
-    -->
-    <div slot="left-col" id="skills-label" class="card">
-      <span class="toggleCards" data-set="skills"></span>
-      <h3>Skills</h3>
-
-      <!-- icon row -->
-      <div class="icon-links">
-        {skills.map((skill)=> (
-          <span id={`${skill.id}-link`} class="icon-link" title={skill.category}>
-            <Icon class="logo" name={skill.logo.name} alt={skill.logo.alt}/>
-          </span>
+                <div id={`${set.category}`}>
+                    <fieldset class="skill-list">
+                    {Object.keys(set.skill).map((skillKey) => (
+                            <label orient='0deg' type='range' for={skillKey}>{skillKey}</label>
+                            <input
+                                orient='0deg'
+                                type='range'
+                                min='0'
+                                value={set.skill[skillKey]}
+                                max='20'
+                                step='1'
+                            />
+                    ))}
+                    </fieldset>
+                </div>
+            </div>
         ))}
-      </div>
-    </div>
+        <div id="certs" class="title-card">
+                <figure id="certs-logo" title="Certifications">
+                    <Icon class="logo" alt=""/>
+                </figure>
+            <h4 id="certs-title">Certifications</h4>
+            <div id="certs-container">
+            {certifications.map((cert)=>(
+                <div>
+                    <h5>{cert.name}</h5>
+                    <p>{cert.date} | {cert.issuer}</p>
+                </div>
+            ))}</div>
+        </div>
+    </article>
 
-    <!-- Information -->
-    <div slot="right-col" id="skills-info" class="card" data-set="skills">
-        {skills.map((skill)=> ({skill}))}
-            
-  </div>
+    <!-- End Skills-->
+  <!-- End Column 2 -->
 </TwoPanelLeft>
 
 <script>
+ import { initializeDynamicToggler } from "src/scripts/dynamicToggler.js";
+  // Store references to the containers
+  const col1Container = document.querySelector(".col-1");
+  const col2Container = document.querySelector(".col-2");
+
+  // Initialize dynamic toggler
+  initializeDynamicToggler(col1Container, col2Container);
 </script>
 
-
 <style lang="scss">
-  [id$="-label"] {
-    position: relative;
-    height: auto;
-    width: auto;
-    padding: var(--global-s1);
-    z-index: 0;
-    h3{
-      margin: 0 0 calc(var(--global-s1) * .7);
+
+        
+    div,
+    article {
+        display: grid;
+        grid-gap: var(--global-s1);
+        h2 {
+            color: var(--white-7);
+        }
     }
-  }
+    .section-header p {
+            margin: 0;
+    }
+    .button-container {
+        background-color: var(--black-6);
+        border-radius:var(--global-radius);
+        padding:calc(var(--global-s1)*.1);
+        button {
+            color: var(--white-5);
+            font-size: calc(var(--base-text)*1.7);
+        }
+    }
+    .logo {
+        fill: var(--white-5);
+        transition: transform 0.3s ease;
+    }
+    .logo:hover {
+        fill: var(--white-7);
+        transform: scale(1.1); /* Adjust the scale factor as needed */
+    }
+    
+    [class^="sub-button-"],
+    .sub-button {
+        grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+        button{
+            padding:var(--global-s1);
+            svg {
+                max-height: calc(var(--global-s1) * 6);
+            }
+        }
+    }
 
-  [id$="-info"] {
-    display: grid;
-    gap: var(--global-s1);
-    opacity: 0; /* Set initial opacity to 0 */
-    display: none;
-  }
+    .opacity-0 {
+        display: none;
+        opacity: 0;
+    }
 
-  [id$="-card"] {
-  }
+    .opacity-1 {
+        display: grid;
+        opacity: 1;
+    }
 
-  .clickable {
-    z-index: 1;
-    position: absolute;
-    display: flex;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  .show {
-    opacity: 1 !important; /* Set initial opacity to 0 */
-    display: grid !important;
-    transition: opacity 0.5s; /* Add transition property for opacity */
-    animation: fadeIn 0.5s; /* Add animation for fade-in effect */
-  }
+    .title-card {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-areas: "image info";
+        gap: var(--global-s1);
+        align-items: center;
+        background-color: var(--black-6);
+        border-radius: var(--global-radius);
+        color: var(--white-5);
+        h4 {
+            font-size: calc(var(--base-text)*2);
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var(--primary-text-color);
+        }
+        figure {
+            display: grid;
+            justify-items: center;
+            padding:var(--global-s1);
+            button{
+                hight:100%;
+                width:100%;
+            }
+            svg {
+                max-height: calc(var(--global-s1) * 8);
+            }
+        }
 
-  .title-card {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-areas: "image info";
-      gap: var(--global-s1);
-    align-items: center;
-    background-color: var(--primary-text-color);
-    color: var(--white-5);
+    }
+
+    .job {
+        grid-gap: calc(var(--global-s1)*.5);
+    }
 
     [id$="-info"] {
-      grid-area: info;
+        background-color: var(--black-7);
+        margin: calc(var(--global-s1) * -1) 0 0;
+        padding: var(--global-s1) var(--global-s2);
     }
-  }
 
-  .icon-links {
-    display: grid;
-    position: relative;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-around;
-    align-items: center;
-    gap: calc(var(--global-s1)*.5);
-    z-index: 3;
-  }
-
-  #work-history {
-    display: grid;
-    gap: var(--global-s1);
-  }
-
-  .job {
-    display: grid;
-    padding: var(--global-s1);
-    border-radius: var(--global-radius);
-  }
-
-  #title {
-    grid-area: info;
-  }
-
-  .job-employer {
-    margin: 0;
-    padding: 0;
-  }
-
-  .job-positions {
-    display: flex;
-    flex-direction: row;
-    gap: var(--global-s1);
-    padding: 0;
-    margin: 5px 0;
-  }
-
-  .job-position {
-    display: flex;
-  }
-
-   [astro-icon] {
-    grid-area: image;
-    filter: drop-shadow(var(--global-shadow));
-    fill:  var(--white-5); /* Specify the fill color here */
-  }
-
-  .info-card {
-    display: none;
-    gap: 0;
-    background-color: var(--black);
-    color: var(--white-5);
-    margin-top: calc(var(--global-s1) * -1);
-    p {
-      margin-block-start: 0;
-      margin-block-end: 0;
+    #skills {
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: .5fr 7.5fr 4fr; 
+        grid-gap: var(--global-s1);
+        grid-template-areas: 
+        "header header header"
+        "col-1 col-2 col-3"
+        "footer footer footer"; 
+        h2 {
+            grid-area: header;
+            width: 100%;
+        }
     }
-    ul {
-      display: grid;
-      gap: var(--global-s1);
-    }
-  }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+    #skills .title-card {        
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        padding: var(--global-s1);
+        flex-wrap: wrap;
+        justify-content: center;
 
+        figure {
+            min-width: var(--global-s2);
+        }
+        div {
+            width: 100%;
+        }
+    }
+
+    #certs {
+        grid-area: footer;
+
+        #certs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: var(--global-s1);
+            justify-content: space-around;
+            padding: var(--global-s1);
+
+            div {
+                background-color: var(--white-2);
+                outline: 1px solid var(--white-4);
+                padding: calc(var(--global-s1)*.3);
+                filter: drop-shadow(var(--global-shadow));
+            }
+        }
+    }
+
+    .skill-list {
+        border: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "title bar";
+        grid-gap: calc(var(--global-s1)*.5)
+    }
+    
+    /* Slider *
+    * ====== */
+    /* ## Slider main element */
+    input[type='range'] {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        font-size: inherit;
+        width: calc(var(--global-s1) * 10);
+        height: var(--global-s1);
+        border-radius: var(--global-radius);
+        outline: 0.2em solid var(--black-2);
+        background-color: var(--black-2);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        cursor: pointer;
+        transition: box-shadow 0.2s linear;
+        box-shadow: var(--global-shadow);
+        filter: drop-shadow(var(--global-shadow));
+        opacity: 30%;
+        &:focus { box-shadow: 0 0 0 .1em  var(--global-text-color); }
+        &:hover { box-shadow: 0 0 0 .15em var(--tertiary-color); }
+    }  
+
+    /* ## Orientation tweak, with [orient] attribute in degrees */
+    /* > I know it's not standard, but that's the cleaner way I was thinking of. */
+    input[type='range'][orient] {
+    /* > Would be cool heh :-) : */
+    transform: rotate( attr(orient) );
+    }
+
+    input[type='range'][orient='90deg'] {  transform: rotate( 90deg );  }
+    input[type='range'][orient='180deg'] { transform: rotate( 180deg ); }
+    input[type='range'][orient='270deg'] { transform: rotate( 270deg ); }
+
+    /* ### all vertical ranges : */
+    input[type='range'] {
+    &[orient='90deg'], &[orient='270deg'] {
+        &::-webkit-slider-thumb { cursor: ns-resize; }
+            &::-moz-range-thumb { cursor: ns-resize; }
+                &::-ms-thumb { cursor: ns-resize; }
+        margin: 4.5em -4.5em;
+        display: inline-block;
+    }
+    }
+
+
+
+    /* ## Slider components */
+    /* ### Slider::-track */
+    input[type='range'] {
+    @mixin track() {
+        border: none;
+        background: none;
+        height: 100%;
+        width: 100%;
+    }
+    &::-webkit-slider-runnable-track { @include track(); }
+                &::-moz-range-track { @include track(); }
+                        &::-ms-track { @include track(); }
+    }
+
+    /* ### Slider::-thumb */
+    input[type='range'] {
+    @mixin thumb() {
+        margin: .05em; padding: 0;
+        height: .9em; width: .9em;
+        border-radius: .1em;
+        box-sizing: border-box;
+        border: none;
+        background-color: var(--white);
+        box-shadow:
+        -10em 0 0 0 var(--black), -9em 0 0 0 var(--white-1),
+        -8em 0 0 0 var(--white-2), -7em 0 0 0 var(--white-3),
+        -6em 0 0 0 var(--white-4), -5em 0 0 0 var(--white-5),
+        -4em 0 0 0 var(--white-6), -3em 0 0 0 var(--white-7),
+        -2em 0 0 0 var(--white-8), -1em 0 0 0 var(--white-9),
+
+            1em 0 0 0 var(--primary-background-color), 2em 0 0 0 var(--primary-background-color),
+            3em 0 0 0 var(--primary-background-color), 4em 0 0 0 var(--primary-background-color),
+            5em 0 0 0 var(--primary-background-color), 6em 0 0 0 var(--primary-background-color),
+            7em 0 0 0 var(--primary-background-color), 8em 0 0 0 var(--primary-background-color),
+            9em 0 0 0 var(--primary-background-color);
+        cursor: ew-resize;
+    }
+    &::-webkit-slider-thumb { @include thumb(); }
+        &::-moz-range-thumb { @include thumb(); }
+                &::-ms-thumb { @include thumb(); }
+    }
+    
+    
+    /* ## Browser tweaks */
+    /* ### webkit */
+    input[type='range'] {
+    &,
+    &::-webkit-slider-runnable-track, 
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+    }
+    }
+
+    /* ### IE */
+    input[type='range'] {
+    &::-ms-track {
+        color: transparent;
+    }
+    &::-ms-fill-lower, 
+    &::-ms-fill-upper, 
+    &::-ms-tooltip {
+        display: none;
+    }
+    }
+    
+    /* Label *
+    * ====== */
+    /* ## Label main element */
+    label[type='range'] {
+        text-align: end;
+    &[orient='90deg'],
+    &[orient='270deg'] {
+        border-bottom-color: transparent;
+        display: inline-block;
+        width: 1em; height: 10.1em;
+        line-height: 10.1em;
+        vertical-align: top;
+
+    }
+    &[orient='90deg'] {
+        border-bottom-color: transparent;
+        border-left-color: var(--black-6);
+        background-position: center left;
+        text-align: center;
+        &::before {
+        top: -.2em;
+        bottom: auto;
+        left: .1em;
+        }
+        &::after {
+        left: .1em;
+        top: auto;
+        bottom: -.2em;
+        right: 0;
+        text-align: left;
+        }
+    }
+    &[orient='180deg'] {
+        border-bottom-color: transparent;
+        border-top-color: var(--black-6);
+        background-position: top center;
+        line-height: 1.4em;
+        
+        &::before {
+        bottom: 0;
+        left: auto;
+        right: -.2em;
+        text-align: right;
+        }
+        &::after {
+        bottom: 0;
+        left: -.2em;
+        right: auto;
+        text-align: left;
+        }
+    }
+    &[orient='270deg'] {
+        border-bottom-color: transparent;
+        border-right-color: var(--black-6);
+        background-position: center right;
+        text-align: center;
+        &::before {
+        bottom: -.2em;
+        top: auto;
+        right: .1em;
+        left: auto;
+        text-align: right;
+        }
+        &::after {
+        right: .1em;
+        bottom: auto;
+        top: -.2em;
+        left: auto;
+        text-align: right;
+        }
+    }
+    }  
+    /* Mobile-friendly styles */
+    @media (max-width: 768px) {
+    section {
+        grid-template-columns: 1fr;
+    }
+
+    [class^="col-"] {
+        padding: calc(var(--global-s1) * 0.5);
+    }
+
+    .sub-button,
+    [class^="sub-button-"] {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: var(--global-s1);
+    }
+    }
 </style>

@@ -1,15 +1,30 @@
 {
   "about": [
     {
-      "name": "Bill Wallbaum",
+      "name": {
+        "prefix": "Sir",
+        "first": "William",
+        "preffered": "Bill",
+        "last": "Wallbaum",
+        "suffix": "Jr."
+      },
       "pronouns": "He/Him",
       "profession": ["Graphic Designer", "Front-End Developer"],
-      "location": "Colorado Springs, Colorado, United States",
-      "linkedin": "linkedin.com/in/billwallbaum",
-      "website": "catsimaginganddesign.com",
-      "phone": "7193890188",
-      "email": "bill@catsimaginganddesign.com",
-      "twitter": "CIandD",
+      "location": {
+        "city": "Colorado Springs",
+        "state": "Colorado",
+        "Country": "United States",
+        "zip": "80910"
+      },
+      "social": {
+        "linkedin": "linkedin.com/in/billwallbaum",
+        "twitter": "CIandD"
+      },
+      "contact": {
+        "phone": "7193890188",
+        "website": "catsimaginganddesign.com",
+        "email": "bill@catsimaginganddesign.com"
+      },
       "birthday": "October 7",
       "bio": "It's amazing how fast the world changes. When I first started a simple flat image was great. Today's designer knows 3-d, video and motion graphics, vector design, social media management, UX/UI design and so much more. Over the past 15 years, I have learned so much, and continue to learn every day. I do it so when you come to me with the question 'Why should I choose you?' I can truly say 'I'm ready'. Together, we can go... beyond creative."
     }
@@ -49,7 +64,7 @@
       "employer": {
         "name": "Advanced Affordable Hearing",
         "logo": {
-          "name": "AAH",
+          "name": "Advanced_Affordable_Hearing-Icon",
           "alt": ""
         }
       },
@@ -115,43 +130,55 @@
   ],
   "skills": [
     {
-      "category":"design",
+      "category": "design",
       "id": "graphic",
       "logo": {
         "name": "brush",
         "alt": ""
       },
-      "skills": [
-        "Packaging Design",
-        "Microsoft Excel",
-        "Brochures",
-        "Layout",
-        "Magazines",
-        "Promotions",
-        "Production",
-        "Retouching",
-        "Social Media Management",
-        "Video and Motion Graphics",
-        "Vector Design",
-        "Analytics"
-      ]
+      "skill": {
+        "Packaging Design": 2,
+        "Microsoft Excel": 20,
+        "Brochures": 9,
+        "Layout": 10,
+        "Magazines": 10,
+        "Promotions": 9,
+        "Production": 9,
+        "Retouching": 17,
+        "Video and Motion Graphics": 5,
+        "Vector Design": 20
+      }
     },
     {
-      "category":"development",
+      "category": "marketing",
+      "id": "markeing",
+      "logo": {
+        "name": "market",
+        "alt": ""
+      },
+      "skill": {
+        "Microsoft Excel": 20,
+        "Promotions": 9,
+        "Social Media Management": 10,
+        "Analytics": 2
+      }
+    },
+    {
+      "category": "development",
       "id": "dev",
       "logo": {
         "name": "code",
         "alt": ""
       },
-      "skills": [
-        "Drupal",
-        "Visual Basic for Applications (VBA)",
-        "WordPress",
-        "Web Design",
-        "Shopify",
-        "UX/UI Design",
-        "Programming"
-      ]
+      "skill": {
+        "Drupal": 1,
+        "Visual Basic for Applications (VBA)": 3,
+        "WordPress": 15,
+        "Web Design": 17,
+        "Shopify": 1,
+        "UX/UI Design": 15,
+        "Programming": 1
+      }
     }
   ],
   "certifications": [
